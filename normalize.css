@@ -38,7 +38,7 @@
    */
   
   h1 {
-    font-size: 2em;
+    font-size: 3em;
     margin: 0.67em 0;
   }
   
@@ -346,4 +346,9 @@
   
   [hidden] {
     display: none;
+  }
+
+  @font-face {
+    font-family: 'Hogwarts Wizard';
+    src: url('./images/harry-p-font/HarryP.ttf') format('truetype');
   }
