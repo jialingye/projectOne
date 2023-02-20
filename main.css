@@ -24,7 +24,8 @@ header {
     border-radius: 1em;
     box-shadow: inset 0px 0px 5px #ccc;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
 }
 
 
@@ -48,17 +49,17 @@ h1{
     font-family:'Hogwarts Wizard', sans-serif;
     color: #b19c48;   
 }
-section{
+.mainPicture{
     display: flex;
     flex-direction: row;
-    
-
+    /* border: 1px solid pink; */
 }
 
 .image-container{
     max-width: 80%;
     max-height: 800%;
     overflow: hidden;
+    position: relative;
 }
 
 .image-container img{
@@ -69,18 +70,97 @@ section{
     margin: 10px;
 }
 
-#questions{
+.clickable {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    cursor:crosshair;
+    /* Use CSS to position each clickable element at the location of each item in the picture */
+  }
+
+  .item-1 {
+    top: 350px;
+    left: 200px;
+  }
+  
+  .item-2 {
+    top: 450px;
+    left: 400px;
+  }
+  
+  .item-3 {
+    top: 430px;
+    left: 650px;
+  }
+
+  .item-4 {
+    top: 430px;
+    left: 750px;
+  }
+
+  .item-5 {
+    top: 470px;
+    left: 180px;
+  }
+
+aside{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+
+    /* border: 1px dotted pink; */
+}
+#timer{
     text-align: center;
     font-size: 3em;
     font-family: 'Hogwarts Wizard', sans-serif;
     flex: 1;
     color: #b19c48;
+    border: 10px double #b19c48;;
+    border-radius: 50%;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#score{
+    text-align: center;
+    font-size: 3em;
+    font-family: 'Hogwarts Wizard', sans-serif;
+    flex: 1;
+    color: #b19c48;
+    border: 10px double #b19c48;;
+    border-radius: 50%;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.items{
+    /* border: 1px solid pink; */
+    width: 100%;
+}
+.keys{
+    /* border: 1px solid pink; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-
+.keys img{
+    max-width: 200px;
+    max-height: 100px;
+    object-fit: cover;
+    margin: 10px;
+    border: 2px dotted white;
+}
 
 footer{
-    border: 1px solid red
+    /* border: 1px solid red */
 
 }
 
