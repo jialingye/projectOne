@@ -56,7 +56,7 @@ h1{
 }
 
 .image-container{
-    max-width: 80%;
+    max-width: 90%;
     max-height: 800%;
     overflow: hidden;
     position: relative;
@@ -72,37 +72,12 @@ h1{
 
 .clickable {
     position: absolute;
-    width: 100px;
+    width: 50px;
     height: 50px;
     background-color: transparent;
     border: none;
-    cursor:crosshair;
+    cursor: crosshair;
     /* Use CSS to position each clickable element at the location of each item in the picture */
-  }
-
-  .item-1 {
-    top: 350px;
-    left: 200px;
-  }
-  
-  .item-2 {
-    top: 450px;
-    left: 400px;
-  }
-  
-  .item-3 {
-    top: 430px;
-    left: 650px;
-  }
-
-  .item-4 {
-    top: 430px;
-    left: 750px;
-  }
-
-  .item-5 {
-    top: 470px;
-    left: 180px;
   }
 
 aside{
@@ -111,9 +86,16 @@ aside{
     width: 30%;
     justify-content: center;
     align-items: center;
-
+    
     /* border: 1px dotted pink; */
 }
+
+aside h1{
+    margin-top: 20px;
+    margin-bottom:0;
+    
+}
+
 #timer{
     text-align: center;
     font-size: 3em;
@@ -143,12 +125,25 @@ aside{
 .items{
     /* border: 1px solid pink; */
     width: 100%;
+    display:flex;
+    flex-direction: column;
+
 }
+
+#pic-name{
+    flex: 1;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* border: 10px double #b19c48;
+    border-radius: 50%; */
+}
+
 .keys{
     /* border: 1px solid pink; */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex: 4;
 }
 
 .keys img{

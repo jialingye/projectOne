@@ -14,30 +14,30 @@
     
     <header>
       <h6>instruction</h6>
-      <p>Hogwarts Tresure Hunt</p>
+      <p>Hogwarts Treasures Hunt</p>
       <h6>hints</h6>
     </header>
     <main>
      <section class="mainPicture">
         <div class="image-container"> 
-          <img src="./images/train.png" alt="train">
-          <div class="item-1 clickable"></div>
-          <div class="item-2 clickable"></div>
-          <div class="item-3 clickable"></div>
-          <div class="item-4 clickable"></div>
-          <div class="item-5 clickable"></div>
+          <img id='image' src="./images/train.png" alt="train">
+          <div class="item clickable" data-item-id="1"></div>
+          <div class="item clickable" data-item-id="2"></div>
+          <div class="item clickable" data-item-id="3"></div>
+          <div class="item clickable" data-item-id="4"></div>
+          <div class="item clickable" data-item-id="5"></div>
         </div>
         <aside>
           <h1> Score </h1>
-          <div id="score"> 1 </div>
+          <div id="score"> 0 </div>
           <h1> Timer </h1>
           <div id="timer">00:00</div>
         </aside>
       </section>
       <section class="items"> 
-        <h1>Hogwarts Train</h1>
+        <h1 id="pic-name">Hogwarts Train</h1>
         <div class="keys">
-         <span><img src="./images/train/owl.png" alt="owl"></span> 
+         <span><img src='./images/train/owl.png' alt="owl"></span> 
          <span><img src="./images/train/luggage.png" alt="luggage"></span> 
          <span><img src="./images/train/map.png" alt="map"></span>
          <span><img src="./images/train/wand.png" alt="wand"></span>
