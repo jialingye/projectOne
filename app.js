@@ -92,9 +92,29 @@ itemClicked.forEach(function(item){
     item.addEventListener('click',handleClick);
 })
 
+//click function
 function handleClick(event){
+    //score plus 1 and show on board
     score++;
-    event.target.removeEventListener('click',handleClick)
     document.getElementById('score').innerText=score;
+    //remove click event
+    event.target.removeEventListener('click',handleClick)
+    //if item is clicked, then add border around keys
+    const keys=document.querySelector(`#image${event.target.dataset.itemId}`);
+    keys.style.border='5px dotted #b19c48';
+
+    if(score%5===0){
+        announceWin()
+        console.log('you win')
+    }
 }
 
+function announceWin(){
+   const windows=document.createElement('div');
+   console.log(windows)
+   windows.classList='new-window';
+//    const message=document.createElement('h1')
+//    message.textContent='Congratulations, You win'
+//    windows.appendChild(message);
+    document.querySelector('.mainPicture').appendChild(windows);
+}

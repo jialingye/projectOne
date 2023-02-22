@@ -115,7 +115,7 @@ aside h1{
     font-family: 'Hogwarts Wizard', sans-serif;
     flex: 1;
     color: #b19c48;
-    border: 10px double #b19c48;;
+    border: 10px double #b19c48;
     border-radius: 50%;
     width: 200px;
     display: flex;
@@ -151,7 +151,6 @@ aside h1{
     max-height: 100px;
     object-fit: cover;
     margin: 10px;
-    border: 2px dotted white;
 }
 
 footer{
@@ -159,7 +158,12 @@ footer{
 
 }
 
-
+.new-window{
+    border: 10px solid white;
+    background-color: #b19c48;
+    color: white;
+    position: absolute;
+}
 
 
 
