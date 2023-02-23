@@ -41,6 +41,7 @@ main {
     border-radius: 2em;
     box-shadow: inset 0px 0px 5px #ccc;
     background-color: #000000b8;
+    position: relative;
 
 }
 
@@ -159,10 +160,35 @@ footer{
 }
 
 .new-window{
-    border: 10px solid white;
+    border: 10px solid #a56012;
+    border-radius: 2em;
     background-color: #b19c48;
     color: white;
     position: absolute;
+    top: 40px ;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #631717f5;
+    color: #cc6600;
+    padding: 20px;
+    text-align: center;
+}
+
+button{
+    border: 10px double #a56012;
+    border-radius: 50%;
+    background-color: #641616f5;
+    color: white; 
+    width: 200px;
+    height: 200px;
+    font-size: 16px;
+    margin: 100px;
+
 }
 
 

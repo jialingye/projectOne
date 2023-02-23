@@ -1,6 +1,7 @@
 //declare global variable
 let score=0;
-
+let i=0;
+let clickedableItems=[];
 //create objects that contatins pictures links and key links and key locations
 const objectsToFind=[
 {
@@ -63,34 +64,48 @@ itemLocation: [{id:1,top:'100px',left:'200px'},{id:2,top:'100px',left:'200px'},{
 
 //make function that will change picture and keys
 function changeTheme(i){
-//change picture name
-const picNameEl=document.getElementById('pic-name')
-picNameEl.innerHTML=objectsToFind[i].picName;
-//change picture link and alt
-const pictureLinkEl=document.getElementById('image');
-pictureLinkEl.src=objectsToFind[i].pictureLink;
-pictureLinkEl.alt=objectsToFind[i].alt;
-//change key pictures
-const itemPictureEls=document.querySelectorAll('.keys img');
-for(let j=0; j<objectsToFind[i].itemPicture.length; j++){
-   itemPictureEls[j].src=objectsToFind[i].itemPicture[j];
-   }
-//change click items locations
-const imageContainer=document.querySelector('.image-container');
-const items=imageContainer.querySelectorAll('.item');
-for(let k=0; k<objectsToFind[i].itemLocation.length;k++){
+   removeClickListener();
+   //change picture name
+   const picNameEl=document.getElementById('pic-name')
+   picNameEl.innerHTML=objectsToFind[i].picName;
+   //change picture link and alt
+   const pictureLinkEl=document.getElementById('image');
+   pictureLinkEl.src=objectsToFind[i].pictureLink;
+   pictureLinkEl.alt=objectsToFind[i].alt;
+   //change key pictures
+   const itemPictureEls=document.querySelectorAll('.keys img');
+   for(let j=0; j<objectsToFind[i].itemPicture.length; j++){
+     itemPictureEls[j].src=objectsToFind[i].itemPicture[j];
+     }
+   //change click items locations
+   const imageContainer=document.querySelector('.image-container');
+   const items=imageContainer.querySelectorAll('.item');
+   for(let k=0; k<objectsToFind[i].itemLocation.length;k++){
     const item=imageContainer.querySelector(`[data-item-id="${objectsToFind[i].itemLocation[k].id}"]`)
     item.style.top=objectsToFind[i].itemLocation[k].top;
     item.style.left=objectsToFind[i].itemLocation[k].left; 
+   }
+   addClickListener();
 }
-}
-const gryffindorTheme=changeTheme(1);
+const gryffindorTheme=changeTheme(i);
+
 
 //make clickable item event listener
+function addClickListener(){
 const itemClicked=document.querySelectorAll('.clickable');
 itemClicked.forEach(function(item){
     item.addEventListener('click',handleClick);
+    clickedableItems.push(item);
 })
+}
+//make remove clickable item event listener
+function removeClickListener(){
+    const itemClicked=document.querySelectorAll('.clickable');
+    itemClicked.forEach((item)=>{
+        item.removeEventListener('click', handleClick);
+        clickedableItems=[];
+    })
+}
 
 //click function
 function handleClick(event){
@@ -98,10 +113,11 @@ function handleClick(event){
     score++;
     document.getElementById('score').innerText=score;
     //remove click event
-    event.target.removeEventListener('click',handleClick)
+    event.target.removeEventListener('click',handleClick);
     //if item is clicked, then add border around keys
     const keys=document.querySelector(`#image${event.target.dataset.itemId}`);
     keys.style.border='5px dotted #b19c48';
+    keys.style.borderRadius='1em'
 
     if(score%5===0){
         announceWin()
@@ -109,12 +125,35 @@ function handleClick(event){
     }
 }
 
+//create win message window and attach two buttons
 function announceWin(){
+    //make new window
    const windows=document.createElement('div');
-   console.log(windows)
    windows.classList='new-window';
-//    const message=document.createElement('h1')
-//    message.textContent='Congratulations, You win'
-//    windows.appendChild(message);
-    document.querySelector('.mainPicture').appendChild(windows);
+   //create element in the window
+   const message=document.createElement('h1')
+   const buttonRow=document.createElement('span');
+   const replay=document.createElement('button');
+   const nextLevel=document.createElement('button');
+   //element text 
+   replay.innerHTML='<h1>Replay</h1>';
+   nextLevel.innerHTML='<h1>Next Level</h1>';
+   message.textContent='Congratulations, You have won this level !'
+   //append element to the window
+   buttonRow.appendChild(replay);
+   buttonRow.appendChild(nextLevel);
+   windows.appendChild(message);
+   windows.appendChild(buttonRow)
+   document.querySelector('.mainPicture').appendChild(windows);
+    //make click event on two buttons
+    nextLevel.addEventListener('click',function(){
+        changeTheme(i+1);
+        windows.style.display='none'
+       })
+    replay.addEventListener('click',function(){
+        changeTheme(i);
+        windows.style.display='none'
+       })
+
 }
+
