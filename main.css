@@ -77,7 +77,7 @@ h1{
     height: 50px;
     background-color: transparent;
     border: none;
-    cursor: crosshair;
+    /* cursor: pointer; */
     /* Use CSS to position each clickable element at the location of each item in the picture */
   }
 
