@@ -13,9 +13,9 @@
 
 ## Wire Frames
 <h3> Initial Game View </h3>
-![begin](file:./images/md/begin.png)
+ ![begin](https://git.generalassemb.ly/jadeye/projectOne/blob/main/images/md/begin.png)
 <h3> Game View </h3>
-![begin](file:./images/md/main.png)
+ ![main](https://raw.git.generalassemb.ly/jadeye/projectOne/main/images/md/begin.png?token=AAALQZUET5YTFB6SZQMHOQTEAOLWM)
 
 ### MVP Goals
 <ul>
