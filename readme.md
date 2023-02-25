@@ -13,13 +13,13 @@
 
 ## Wire Frames
 <h3> Initial Game View </h3>
- ![begin](url(./images/md/begin.png))
+ ![begin](https://raw.githubusercontent.com/jadeye/projectOne/main/images/md/begin.png)
 
 <h3> Game View </h3>
- ![main](url(./images/md/main.png))
+ ![main](https://raw.githubusercontent.com/jadeye/projectOne/main/images/md/main.png)
 
 <h3> Final View </h3>
-![final](url(./images/md/final.png))
+![final](https://raw.githubusercontent.com/jadeye/projectOne/main/images/md/final.png)
 
 ## User Stories
 ### MVP Goals
