@@ -14,11 +14,13 @@
 ## Wire Frames
 <h3> Initial Game View </h3>
  ![begin](https://git.generalassemb.ly/jadeye/projectOne/blob/main/images/md/begin.png)
+ 
 <h3> Game View </h3>
- ![main](https://raw.git.generalassemb.ly/jadeye/projectOne/main/images/md/main.png?token=AAALQZUET5YTFB6SZQMHOQTEAOLWM)
+ ![main](https://git.generalassemb.ly/jadeye/projectOne/blob/main/images/md/main.png)
 
 <h3> final View </h3>
-![final](htt)
+![final](https://git.generalassemb.ly/jadeye/projectOne/blob/main/images/md/final.png)
+
 ### MVP Goals
 <ul>
     <li>Displaying an image of a Harry Potter-themed scene with clickable objects</li>
