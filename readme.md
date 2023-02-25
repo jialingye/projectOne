@@ -13,13 +13,13 @@
 
 ## Wire Frames
 <h3> Initial Game View </h3>
- ![begin](https://git.generalassemb.ly/jadeye/projectOne/blob/b13ddc0fc5c28a23d0c7748a753d7b3bfdb2a6d0/images/md/begin.png)
+ <img src='https://git.generalassemb.ly/jadeye/projectOne/blob/b13ddc0fc5c28a23d0c7748a753d7b3bfdb2a6d0/images/md/begin.png' alt='initial'/>
 
 <h3> Game View </h3>
- ![main](https://git.generalassemb.ly/jadeye/projectOne/blob/b13ddc0fc5c28a23d0c7748a753d7b3bfdb2a6d0/images/md/main.png)
+<img src='https://git.generalassemb.ly/jadeye/projectOne/blob/b13ddc0fc5c28a23d0c7748a753d7b3bfdb2a6d0/images/md/main.png' />
 
 <h3> Final View </h3>
-![final](https://git.generalassemb.ly/jadeye/projectOne/blob/b13ddc0fc5c28a23d0c7748a753d7b3bfdb2a6d0/images/md/final.png)
+<img src='https://git.generalassemb.ly/jadeye/projectOne/blob/b13ddc0fc5c28a23d0c7748a753d7b3bfdb2a6d0/images/md/final.png' />
 
 ## User Stories
 ### MVP Goals
