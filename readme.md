@@ -13,23 +13,24 @@
 
 ## Wire Frames
 <h3> Initial Game View </h3>
- ![begin](https://git.generalassemb.ly/jadeye/projectOne/blob/main/images/md/begin.png)
+ ![begin](./images/md/begin.png)
 
 <h3> Game View </h3>
- ![main](https://git.generalassemb.ly/jadeye/projectOne/blob/main/images/md/main.png)
+ ![main](./images/md/main.png)
 
 <h3> Final View </h3>
-![final](https://git.generalassemb.ly/jadeye/projectOne/blob/main/images/md/final.png)
+![final](./images/md/final.png)
 
 ## User Stories
 ### MVP Goals
 <ul>
+    <li>As a player, I want to see a beginning window before starting the game so that I can get ready to play the game.</li>
     <li>As a player, I want to see a Harry Potter-themed scene with clickable objects so that I can search for items.s</li>
     <li>As a player, I want my score to be kept track of so that I can know how many items I have found.</li>
     <li>As a player, I want to see a win message when I have found all the items so that I can know that I have completed the level.</li>
     <li>As a player, I want to play against a timer that limits the amount of time I have to find the items so that I can add an extra challenge to the game.</li>
     <li>As a player, I want to have a button that allows me to restart the game so that I can play again if I want to improve my score.</li>
-    <li>As a player, I want to see a beginning window before starting the game so that I can get ready to play the game.</li>
+    
 </ul>
 
 ### Stretch Goals
