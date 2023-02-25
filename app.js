@@ -143,6 +143,12 @@ function announceWin(){
    const buttonRow=document.createElement('span');
    const replay=document.createElement('button');
    const nextLevel=document.createElement('button');
+   //append element to the window
+   buttonRow.appendChild(replay);
+   buttonRow.appendChild(nextLevel);
+   windows.appendChild(message);
+   windows.appendChild(buttonRow)
+   document.querySelector('.mainPicture').appendChild(windows);
    //element text 
    if(score===80){
     replay.innerHTML='<h1>Replay</h1>';
@@ -152,12 +158,6 @@ function announceWin(){
     nextLevel.innerHTML='<h1>Next Level</h1>';
     message.textContent='Congratulations, You have won this level !'
    }
-   //append element to the window
-   buttonRow.appendChild(replay);
-   buttonRow.appendChild(nextLevel);
-   windows.appendChild(message);
-   windows.appendChild(buttonRow)
-   document.querySelector('.mainPicture').appendChild(windows);
     //make click event on two buttons
     nextLevel.addEventListener('click',function(){
         i=i+1;
