@@ -1,5 +1,5 @@
-#Project-1
-    *My project is about making a game that can be played in a browser using Javascript
+# Project-1
+<p> My project is about making a game that can be played in a browser using Javascript </p>
 
 ### Installation Instructions
 <p>No installation needed, click on the link below and you will be able to play the game through your browser.</p>
