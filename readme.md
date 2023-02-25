@@ -13,8 +13,9 @@
 
 ## Wire Frames
 <h3> Initial Game View </h3>
-
+![begin](file:./images/md/begin.png)
 <h3> Game View </h3>
+![begin](file:./images/md/main.png)
 
 ### MVP Goals
 <ul>
