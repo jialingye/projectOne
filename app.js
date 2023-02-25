@@ -95,6 +95,7 @@ function changeTheme(i){
     item.style.left=objectsToFind[i].itemLocation[k].left; 
    }
    addClickListener();
+   timer();
 }
 const gryffindorTheme=changeTheme(i);
 
@@ -181,4 +182,22 @@ function announceWin(){
        })
       })
 }
+
+//make timer function
+let time=30
+function timer(){
+    let timeFn=setInterval(function(){
+        let timeDisplay=document.querySelector('#timer')
+        console.log(timeDisplay)
+        timeDisplay.innerText=`${time}`
+        time--;
+        if(time<0){
+            clearInterval(timeFn);
+            if(itemFound%5 !==0){
+                console.log('you lose')
+            }
+        }
+    }, 1000)
+}
+
 

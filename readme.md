@@ -14,39 +14,31 @@
 ## Wire Frames
 <h3> Initial Game View </h3>
  ![begin](https://git.generalassemb.ly/jadeye/projectOne/blob/main/images/md/begin.png)
- 
+
 <h3> Game View </h3>
  ![main](https://git.generalassemb.ly/jadeye/projectOne/blob/main/images/md/main.png)
 
-<h3> final View </h3>
+<h3> Final View </h3>
 ![final](https://git.generalassemb.ly/jadeye/projectOne/blob/main/images/md/final.png)
 
+## User Stories
 ### MVP Goals
 <ul>
-    <li>Displaying an image of a Harry Potter-themed scene with clickable objects</li>
-    <li>Keeping track of the score for the number of items found</li>
-    <li>Displaying a win message when all items have been found</li>
-    <li>Adding a timer to limit the player's time to find the items</li>
-    <li>Providing a button to restart the game</li>
-    <li>Adding beginning windows before player start playing games</li>
+    <li>As a player, I want to see a Harry Potter-themed scene with clickable objects so that I can search for items.s</li>
+    <li>As a player, I want my score to be kept track of so that I can know how many items I have found.</li>
+    <li>As a player, I want to see a win message when I have found all the items so that I can know that I have completed the level.</li>
+    <li>As a player, I want to play against a timer that limits the amount of time I have to find the items so that I can add an extra challenge to the game.</li>
+    <li>As a player, I want to have a button that allows me to restart the game so that I can play again if I want to improve my score.</li>
+    <li>As a player, I want to see a beginning window before starting the game so that I can get ready to play the game.</li>
 </ul>
 
 ### Stretch Goals
 <ul>
-    <li>Adding sound effects and background music to enhance the game atmosphere</li>
-    <li>Allowing players to choose their Hogwarts house and customizing the game accordingly</li>
-    <li>Implementing a hint system to help players find items if they get stuck</li>
-    <li>Randomized item: To add replayability to the game, you could randomize the items to find on each playthrough, so players can't rely on memorizing the locations from previous playthroughs.</li>
-    <li>Adding animations and special effects to make the game more visually appealing</li>
-</ul>
-
-### User Stories
-<ul>
-    <li>As a player, I want to be able to play multiple levels of the game</li>
-    <li>As a player, I want to be able to see a list of items to find in the current level so that I know what I need to find.</li>
-    <li>As a player, I want to be able to click on the correct item so that I can gain points and move on to the next level.</li>
-    <li>As a player, I want to be able to see a timer so that I know how much time I have left to complete the level.</li>
-    <li>As a player, I want to be able to see a message when I have found all the items in the level so that I know that I have completed the level.</li>
+    <li>As a player, I want to hear sound effects and background music to increase the immersion of the game.</li>
+    <li>As a player, I want to be able to input my name, be assigned a college, and view a scoreboard to track my progress and compete with others.</li>
+    <li>As a player, I want to have access to a hint system to assist me in finding items if I'm stuck.</li>
+    <li>As a player, I want the items to be randomized each time I play the game, so that I can't rely on memorizing their locations from previous playthroughs.</li>
+    <li>As a player, I want the game to include animations and special effects to make the experience more visually appealing.</li>
 </ul>
 
 ### Pseudo Code
