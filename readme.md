@@ -34,3 +34,17 @@
     <li>Incorporating a storyline and making the game more interactive</li>
     <li>Adding animations and special effects to make the game more visually appealing</li>
 </ul>
+
+### Pseudo Code
+<ol>
+    <li>Set up game interface and display the first theme.</li>
+    <li>Create an array of objects, each containing a theme background, five items to find, and their clickable locations.</li>
+    <li>When the player clicks on the correct location for an item, increment the score by one.</li>
+    <li>When the score equals 10, display the win message and allow the player to choose to replay or go to the next level.</li>
+    <li>If the player completes all levels within the time limit, display the final win message.</li>
+    <li>Make beginning theme that ask player to input their names, and assign college for them</li>
+    <li>Set a timer for each level and display the time limit.</li>
+    <li>If the player fails to complete a level within the time limit, display the game over message and allow the player to replay the current level.</li>
+    <li>If the player chooses to use the add time button, add 10 seconds to the timer and deduct one point from the score.</li>
+    <li>End game when all themes are completed and display final score.</li>
+</ol>
