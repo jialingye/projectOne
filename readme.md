@@ -13,13 +13,13 @@
 
 ## Wire Frames
 <h3> Initial Game View </h3>
- ![begin](./images/md/begin.png)
+ ![begin](url(./images/md/begin.png))
 
 <h3> Game View </h3>
- ![main](./images/md/main.png)
+ ![main](url(./images/md/main.png))
 
 <h3> Final View </h3>
-![final](./images/md/final.png)
+![final](url(./images/md/final.png))
 
 ## User Stories
 ### MVP Goals
