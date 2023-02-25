@@ -1,6 +1,7 @@
 //declare global variable
 let score=0;
 let i=0;
+let itemFound=0;
 //let clickedableItems=[];
 //create objects that contatins pictures links and key links and key locations
 const objectsToFind=[
@@ -119,6 +120,8 @@ function removeClickListener(){
 function handleClick(event){
     //score plus 1 and show on board
     score=score+2;
+    itemFound++;
+    console.log(itemFound)
     document.getElementById('score').innerText=score;
     //remove click event
     event.target.removeEventListener('click',handleClick);
@@ -127,9 +130,8 @@ function handleClick(event){
     keys.style.border='5px dotted #b19c48';
     keys.style.borderRadius='1em'
 
-    if(score%10===0){
+    if(itemFound%5===0){
         announceWin()
-        console.log('you win')
     }
 };
 
@@ -150,9 +152,10 @@ function announceWin(){
    windows.appendChild(buttonRow)
    document.querySelector('.mainPicture').appendChild(windows);
    //element text 
-   if(score===80){
+   if(itemFound===10){
     replay.innerHTML='<h1>Replay</h1>';
-    message.textContent='Congratulations, You complete all the levels !'
+    message.textContent=`Congratulations, You complete all the levels ! Your final score is ${score}.`
+    nextLevel.style.display='none';
    } else {
     replay.innerHTML='<h1>Replay</h1>';
     nextLevel.innerHTML='<h1>Next Level</h1>';
@@ -170,7 +173,7 @@ function announceWin(){
        })
     replay.addEventListener('click',function(){
         changeTheme(i);
-        score=score-5;
+        score=score-10;
         windows.style.display='none';
         const keyPic=document.querySelectorAll('.key')
         keyPic.forEach((key)=>{

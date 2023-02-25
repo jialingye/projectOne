@@ -15,8 +15,10 @@
 <h3> Initial Game View </h3>
  ![begin](https://git.generalassemb.ly/jadeye/projectOne/blob/main/images/md/begin.png)
 <h3> Game View </h3>
- ![main](https://raw.git.generalassemb.ly/jadeye/projectOne/main/images/md/begin.png?token=AAALQZUET5YTFB6SZQMHOQTEAOLWM)
+ ![main](https://raw.git.generalassemb.ly/jadeye/projectOne/main/images/md/main.png?token=AAALQZUET5YTFB6SZQMHOQTEAOLWM)
 
+<h3> final View </h3>
+![final](htt)
 ### MVP Goals
 <ul>
     <li>Displaying an image of a Harry Potter-themed scene with clickable objects</li>
@@ -24,6 +26,7 @@
     <li>Displaying a win message when all items have been found</li>
     <li>Adding a timer to limit the player's time to find the items</li>
     <li>Providing a button to restart the game</li>
+    <li>Adding beginning windows before player start playing games</li>
 </ul>
 
 ### Stretch Goals
@@ -31,8 +34,17 @@
     <li>Adding sound effects and background music to enhance the game atmosphere</li>
     <li>Allowing players to choose their Hogwarts house and customizing the game accordingly</li>
     <li>Implementing a hint system to help players find items if they get stuck</li>
-    <li>Incorporating a storyline and making the game more interactive</li>
+    <li>Randomized item: To add replayability to the game, you could randomize the items to find on each playthrough, so players can't rely on memorizing the locations from previous playthroughs.</li>
     <li>Adding animations and special effects to make the game more visually appealing</li>
+</ul>
+
+### User Stories
+<ul>
+    <li>As a player, I want to be able to play multiple levels of the game</li>
+    <li>As a player, I want to be able to see a list of items to find in the current level so that I know what I need to find.</li>
+    <li>As a player, I want to be able to click on the correct item so that I can gain points and move on to the next level.</li>
+    <li>As a player, I want to be able to see a timer so that I know how much time I have left to complete the level.</li>
+    <li>As a player, I want to be able to see a message when I have found all the items in the level so that I know that I have completed the level.</li>
 </ul>
 
 ### Pseudo Code
