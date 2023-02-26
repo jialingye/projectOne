@@ -2,6 +2,7 @@
 let score=0;
 let i=0;
 let itemFound=0;
+let timeFn;
 //let clickedableItems=[];
 //create objects that contatins pictures links and key links and key locations
 const objectsToFind=[
@@ -95,7 +96,6 @@ function changeTheme(i){
     item.style.left=objectsToFind[i].itemLocation[k].left; 
    }
    addClickListener();
-   timer();
 }
 const gryffindorTheme=changeTheme(i);
 
@@ -138,6 +138,7 @@ function handleClick(event){
 
 //create win message window and attach two buttons
 function announceWin(){
+    
     //make new window
    const windows=document.createElement('div');
    windows.classList='new-window';
@@ -153,7 +154,7 @@ function announceWin(){
    windows.appendChild(buttonRow)
    document.querySelector('.mainPicture').appendChild(windows);
    //element text 
-   if(itemFound===10){
+   if(itemFound===40){
     replay.innerHTML='<h1>Replay</h1>';
     message.textContent=`Congratulations, You complete all the levels ! Your final score is ${score}.`
     nextLevel.style.display='none';
@@ -162,6 +163,7 @@ function announceWin(){
     nextLevel.innerHTML='<h1>Next Level</h1>';
     message.textContent='Congratulations, You have won this level !'
    }
+   clearInterval(timeFn);
     //make click event on two buttons
     nextLevel.addEventListener('click',function(){
         i=i+1;
@@ -171,32 +173,65 @@ function announceWin(){
         keyPic.forEach((key)=>{
             key.style.border='none';
         })
+        timer();
        })
     replay.addEventListener('click',function(){
         changeTheme(i);
         score=score-10;
+        itemFound=itemFound-5;
         windows.style.display='none';
         const keyPic=document.querySelectorAll('.key')
         keyPic.forEach((key)=>{
             key.style.border='none';
        })
+       timer();
       })
 }
 
+//create time-out windows with 1 button
+function announceLose(){
+    //copy new-windows from announceWin
+    const windows=document.createElement('div');
+    windows.classList='new-window';
+    const message=document.createElement('h1')
+    const replay=document.createElement('button');
+    windows.appendChild(message);
+    windows.appendChild(replay);
+    document.querySelector('.mainPicture').appendChild(windows);
+    replay.innerHTML='<h1>Replay</h1>';
+    message.textContent=`Sorry, time has run out! Your score is ${score}.`
+    //clear last timer
+    clearInterval(timeFn);
+    //make click event on replay
+    replay.addEventListener('click',function(){
+        changeTheme(i);
+        score=score-(itemFound%5)*2;
+        itemFound=itemFound-itemFound%5;
+        windows.style.display='none';
+        const keyPic=document.querySelectorAll('.key')
+        keyPic.forEach((key)=>{
+            key.style.border='none';
+       })
+       timer();
+    })
+}
+
 //make timer function
-let time=30
+
 function timer(){
-    let timeFn=setInterval(function(){
-        let timeDisplay=document.querySelector('#timer')
-        console.log(timeDisplay)
-        timeDisplay.innerText=`${time}`
+    let time=21;
+        timeFn=setInterval(function(){
         time--;
-        if(time<0){
+        let timeDisplay=document.querySelector('#timer')
+        timeDisplay.innerText=`${time}`
+        
+        if(time<=0){
             clearInterval(timeFn);
-            if(itemFound%5 !==0){
-                console.log('you lose')
+            if(itemFound%5 !==0 || itemFound ===0){
+               announceLose()
             }
-        }
+            return;
+        }    
     }, 1000)
 }
 
