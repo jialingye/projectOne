@@ -3,6 +3,7 @@ let score=0;
 let i=0;
 let itemFound=0;
 let timeFn;
+let addTime=0;
 //let clickedableItems=[];
 //create objects that contatins pictures links and key links and key locations
 const objectsToFind=[
@@ -199,7 +200,7 @@ function announceLose(){
     windows.appendChild(replay);
     document.querySelector('.mainPicture').appendChild(windows);
     replay.innerHTML='<h1>Replay</h1>';
-    message.textContent=`Sorry, time has run out! Your score is ${score}.`
+    message.textContent=`Sorry, time has run out! You extend time ${addTime} times. Your final score is ${score-addTime}.`
     //clear last timer
     clearInterval(timeFn);
     //make click event on replay
@@ -220,6 +221,12 @@ function announceLose(){
 
 function timer(){
     let time=21;
+    let moreTime=document.querySelector('#moretime')
+    moreTime.addEventListener('click',()=>{
+        if(addTime<=5){
+            time=time+10;
+        addTime++;}
+    })
         timeFn=setInterval(function(){
         time--;
         let timeDisplay=document.querySelector('#timer')

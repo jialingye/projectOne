@@ -31,7 +31,6 @@ header {
 
 
 main {
-    border: 1px solid yellow;
     align-items: center;
     display: flex;
     width: 70%;
@@ -50,8 +49,56 @@ h1{
     font-family:'Hogwarts Wizard', sans-serif;
     color: #b19c48;   
 }
-.mainPicture{
+.beginning{
+    border: 10px groove #a56012;
+    border-radius: 1em;
+    background-color: #b19c48;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(49, 40, 40, 0.365);
+    color: #b19c48;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Hogwarts Wizard', sans-serif;
+    font-size: 30px;
+}
+.beginning input{
+    margin-top: 40px;
+    margin-bottom: 50px;
+    border: 5px double #a56012;
+    border-radius: 1em;
+    background-color: #631717f5;
+    width: 300px;
+    text-align: center;
+    color:#b19c48;
+    font-size: 20px;
+}
+
+#sort {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(49, 40, 40, 0.365);
+  }
+  
+  #sort img {
+    width: 400px;
+    height: 200px;
+  }
+  
+.mainPicture{
+    display: none;
+    /* display: flex; */
     flex-direction: row;
     /* border: 1px solid pink; */
 }
@@ -126,7 +173,7 @@ aside h1{
 .items{
     /* border: 1px solid pink; */
     width: 100%;
-    display:flex;
+    display:none;
     flex-direction: column;
 
 }
@@ -184,8 +231,8 @@ button{
     border-radius: 50%;
     background-color: #641616f5;
     color: white; 
-    width: 200px;
-    height: 200px;
+    width: 100px;
+    height: 100px;
     font-size: 16px;
     margin: 100px;
 
