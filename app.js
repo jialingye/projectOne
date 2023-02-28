@@ -100,6 +100,22 @@ function changeTheme(i){
 }
 const gryffindorTheme=changeTheme(i);
 
+//beginning scene name and sort hat function
+    let playName=document.getElementById('player');
+    let sortEl=document.getElementById('sort');
+    sortEl.addEventListener('click',()=>{
+        let colleges=['Gryffdor','Slytherin','Hufflepuff','Ravenclaw'];
+        let imgColleges=['./images/colleges/gryffindor.png','./images/colleges/slytherin.png','./images/colleges/hufflepuff.png','./images/college']
+        let randomIndex=Math.floor(Math.random()*4);
+        let assignCollege=colleges[randomIndex];
+        //make new window and new button and new h1
+        const windows=document.createElement('div');
+        windows.classList='new-window';
+        const announcement=document.createElement('h2');
+        announcement.innerHTML=``
+        
+        console.log(assignCollege)
+    })
 
 //make clickable item event listener
 function addClickListener(){

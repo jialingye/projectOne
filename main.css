@@ -28,6 +28,10 @@ header {
     align-items: center;
 }
 
+header h6{
+    font-size: 40px;
+    display: none;
+}
 
 
 main {
