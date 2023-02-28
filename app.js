@@ -73,6 +73,58 @@ const objectsToFind=[
     }
 ];
 
+//beginning scene name and sort hat function
+const playerName=document.getElementById('player');
+const sortEl=document.getElementById('sort');
+sortEl.addEventListener('click',()=>{
+    //setup data and variable;
+    let name=playerName.value; 
+    const colleges=['Gryffdor','Slytherin','Hufflepuff','Ravenclaw'];
+    const imgColleges=['./images/colleges/gryffindor.png','./images/colleges/slytherin.png','./images/colleges/hufflepuff.png','./images/colleges/ravenclaw.png']
+    let randomIndex=Math.floor(Math.random()*4);
+    let assignCollege=colleges[randomIndex];
+    //make new window and new button and new h1
+    const windows=document.createElement('div');
+    windows.classList='new-window';
+    const collegeImg=document.createElement('img');
+    collegeImg.classList='img'
+    const announcement=document.createElement('h2');
+    announcement.style.color='#b19c48';
+    const enterButton=document.createElement('button');
+    document.querySelector('.beginning').appendChild(windows);
+    //assign name
+    let time=10;
+    let index=0;
+    let sort=setInterval(()=>{
+        announcement.innerText='Sorting hat is deciding...'
+        time--;
+        collegeImg.src=imgColleges[index];
+        index++;
+        if(index>=imgColleges.length){
+            index=0;
+        }
+        if(time===0){
+            //clear timer, show player their college and start the game;
+           clearInterval(sort);
+           collegeImg.src=imgColleges[randomIndex];
+           enterButton.innerHTML='<h1>Start Game</h1>';
+           announcement.innerHTML=`Welcome, ${name}! You are assigned to ${assignCollege}.`
+           windows.appendChild(enterButton);
+        }
+    }, 250)   
+    //append button to windows 
+    windows.appendChild(collegeImg);
+    windows.appendChild(announcement);
+    enterButton.addEventListener('click',()=>{
+        changeTheme(i);
+        document.querySelector('.mainPicture').style.display='flex';
+        document.querySelector('.items').style.display='flex';
+        document.querySelector('.beginning').style.display='none';
+        //document.querySelectorAll('h6').style.display='flex';
+        timer();
+    })
+})
+
 //make function that will change picture and keys
 function changeTheme(i){
    removeClickListener();
@@ -98,24 +150,7 @@ function changeTheme(i){
    }
    addClickListener();
 }
-const gryffindorTheme=changeTheme(i);
 
-//beginning scene name and sort hat function
-    let playName=document.getElementById('player');
-    let sortEl=document.getElementById('sort');
-    sortEl.addEventListener('click',()=>{
-        let colleges=['Gryffdor','Slytherin','Hufflepuff','Ravenclaw'];
-        let imgColleges=['./images/colleges/gryffindor.png','./images/colleges/slytherin.png','./images/colleges/hufflepuff.png','./images/college']
-        let randomIndex=Math.floor(Math.random()*4);
-        let assignCollege=colleges[randomIndex];
-        //make new window and new button and new h1
-        const windows=document.createElement('div');
-        windows.classList='new-window';
-        const announcement=document.createElement('h2');
-        announcement.innerHTML=``
-        
-        console.log(assignCollege)
-    })
 
 //make clickable item event listener
 function addClickListener(){
