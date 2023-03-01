@@ -27,7 +27,7 @@ const objectsToFind=[
     picName:'Ravenclaw Common Room',
     pictureLink: './images/ravenclaw.png',
     alt: 'ravenclaw',
-    itemPicture: ['./images/ravenclaw/telescope.png','./images/ravenclaw/bottle.png','./images/ravenclaw/glass.png','./images/ravenclaw/pumkin.png','./images/ravenclaw/chair.png '  ],
+    itemPicture: ['./images/ravenclaw/sign.png','./images/ravenclaw/person.png','./images/ravenclaw/pattern.png','./images/ravenclaw/cushion.png','./images/ravenclaw/champion.png '  ],
     itemAlt:['telescope','bottle','glass','pumkin','chair'],
     itemLocation: [{id:1,top:'75%',left:'23%'},{id:2,top:'72%',left:'47%'},{id:3,top:'73%',left:'51%'},{id:4,top:'72%',left:'87%'},{id:5,top:'65%',left:'80%'}]
 }, 
@@ -76,6 +76,7 @@ const objectsToFind=[
 //beginning scene name and sort hat function
 const playerName=document.getElementById('player');
 const sortEl=document.getElementById('sort');
+//sort button function
 sortEl.addEventListener('click',()=>{
     //setup data and variable;
     let name=playerName.value; 
@@ -120,7 +121,10 @@ sortEl.addEventListener('click',()=>{
         document.querySelector('.mainPicture').style.display='flex';
         document.querySelector('.items').style.display='flex';
         document.querySelector('.beginning').style.display='none';
-        //document.querySelectorAll('h6').style.display='flex';
+        const h6=document.querySelectorAll('h6');
+        h6.forEach((word)=>{
+            word.style.display='flex';
+        })
         timer();
     })
 })
@@ -139,6 +143,7 @@ function changeTheme(i){
    const itemPictureEls=document.querySelectorAll('.keys img');
    for(let j=0; j<objectsToFind[i].itemPicture.length; j++){
      itemPictureEls[j].src=objectsToFind[i].itemPicture[j];
+     itemPictureEls[j].alt=objectsToFind[i].itemAlt[j];
      }
    //change click items locations
    const imageContainer=document.querySelector('.image-container');
@@ -170,6 +175,7 @@ function removeClickListener(){
 }
 
 //click function
+let prevItemFound=itemFound;
 function handleClick(event){
     //score plus 1 and show on board
     score=score+2;
@@ -186,6 +192,7 @@ function handleClick(event){
     if(itemFound%5===0){
         announceWin()
     }
+    prevItemFound=itemFound;
 };
 
 //create win message window and attach two buttons
@@ -230,6 +237,7 @@ function announceWin(){
     replay.addEventListener('click',function(){
         changeTheme(i);
         score=score-10;
+        document.getElementById('score').innerText=score;
         itemFound=itemFound-5;
         windows.style.display='none';
         const keyPic=document.querySelectorAll('.key')
@@ -250,15 +258,19 @@ function announceLose(){
     windows.appendChild(message);
     windows.appendChild(replay);
     document.querySelector('.mainPicture').appendChild(windows);
-    replay.innerHTML='<h1>Replay</h1>';
+    replay.innerHTML='<h1>Restart</h1>';
     message.textContent=`Sorry, time has run out! You extend time ${addTime} times. Your final score is ${score-addTime}.`
     //clear last timer
     clearInterval(timeFn);
     //make click event on replay
     replay.addEventListener('click',function(){
+        i=0;
         changeTheme(i);
-        score=score-(itemFound%5)*2;
-        itemFound=itemFound-itemFound%5;
+        score=0;
+        itemFound=0;
+        document.getElementById('score').innerText=score;
+        // score=score-(itemFound%5)*2;
+        // itemFound=itemFound-itemFound%5;
         windows.style.display='none';
         const keyPic=document.querySelectorAll('.key')
         keyPic.forEach((key)=>{
@@ -274,7 +286,7 @@ function timer(){
     let time=21;
     let moreTime=document.querySelector('#moretime')
     moreTime.addEventListener('click',()=>{
-        if(addTime<=5){
+        if(addTime<=4){
             time=time+10;
         addTime++;}
     })
@@ -285,7 +297,7 @@ function timer(){
         
         if(time<=0){
             clearInterval(timeFn);
-            if(itemFound%5 !==0 || itemFound ===0){
+            if(itemFound-prevItemFound===0 || itemFound%5 !==0){
                announceLose()
             }
             return;
