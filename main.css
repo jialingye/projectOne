@@ -58,7 +58,7 @@ h1{
     border: 10px groove #a56012;
     border-radius: 1em;
     background-color: #b19c48;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -112,7 +112,7 @@ h1{
   }
   
 .mainPicture{
-    display: none;
+    display: flex;
     /* display: flex; */
     flex-direction: row;
     /* border: 1px solid pink; */
@@ -188,7 +188,7 @@ aside h1{
 .items{
     /* border: 1px solid pink; */
     width: 100%;
-    display:none;
+    display:flex;
     flex-direction: column;
 
 }

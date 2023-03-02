@@ -11,7 +11,7 @@ const objectsToFind=[
     picName:'Hogwarts Train',
     pictureLink: './images/train.png',
     alt: 'train',
-    itemPicture: ['./images/train/owl.png','./images/train/luggage.png','./images/train/map.png','./images/train/wand.png','./images/train/frog.png '  ],
+    itemPicture: ['./images/train/owl.png','./images/train/luggage.png','./images/train/map.png','./images/train/wand.png','./images/train/frog.png'],
     itemAlt:['owl','luggage','map','wand','frog'],
     itemLocation: [{id:1,top:'55%',left:'21%'},{id:2,top:'75%',left:'42%'},{id:3,top:'70%',left:'63%'},{id:4,top:'75%',left:'20%'},{id:5,top:'70%',left:'72%'}]
 }, 
@@ -19,56 +19,64 @@ const objectsToFind=[
     picName:'Potions Class',
     pictureLink: './images/potions.png',
     alt: 'potions',
-    itemPicture: ['./images/potions/tank.png','./images/potions/bottle.png','./images/potions/lizard.png','./images/potions/knift.png','./images/potions/book.png '  ],
-    itemAlt:['tank','bottle','lizard','knift','book'],
+    itemPicture: ['./images/potions/tank.png','./images/potions/bottle.png','./images/potions/lizard.png','./images/potions/knift.png','./images/potions/book.png','./images/potions/bowls.png','./images/potions/book2.png'],
+    itemAlt:['tank','bottle','lizard','knift','book','bowls','book2'],
     itemLocation: [{id:1,top:'45%',left:'32%'},{id:2,top:'56%',left:'62%'},{id:3,top:'57%',left:'35%'},{id:4,top:'58%',left:'58%'},{id:5,top:'55%',left:'26%'}]
-}, 
-{
-    picName:'Ravenclaw Common Room',
-    pictureLink: './images/ravenclaw.png',
-    alt: 'ravenclaw',
-    itemPicture: ['./images/ravenclaw/sign.png','./images/ravenclaw/person.png','./images/ravenclaw/pattern.png','./images/ravenclaw/cushion.png','./images/ravenclaw/champion.png '  ],
-    itemAlt:['telescope','bottle','glass','pumkin','chair'],
-    itemLocation: [{id:1,top:'75%',left:'23%'},{id:2,top:'72%',left:'47%'},{id:3,top:'73%',left:'51%'},{id:4,top:'72%',left:'87%'},{id:5,top:'65%',left:'80%'}]
 }, 
 {
     picName:'Hufflepuff Common Room',
     pictureLink: './images/hufflepuff.png',
     alt: 'hufflepuff',
-    itemPicture: ['./images/hufflepuff/plant.png','./images/hufflepuff/machine.png','./images/hufflepuff/fire.png','./images/hufflepuff/people.png','./images/hufflepuff/frog.png '  ],
-    itemAlt:['plant','machine','fire','people','frog'],
+    itemPicture: ['./images/hufflepuff/plant.png','./images/hufflepuff/machine.png','./images/hufflepuff/fire.png','./images/hufflepuff/people.png','./images/hufflepuff/frog.png','./images/hufflepuff/pumkin.png','./images/hufflepuff/painting.png'],
+    itemAlt:['plant','machine','fire','people','frog','pumkin','painting'],
     itemLocation: [{id:1,top:'48%',left:'16%'},{id:2,top:'48%',left:'43%'},{id:3,top:'63%',left:'51%'},{id:4,top:'35%',left:'50%'},{id:5,top:'60%',left:'85%'}]
 },
 {
     picName:'Slytherin Common Room',
     pictureLink: './images/slytherin.png',
     alt: 'slytherin',
-    itemPicture: ['./images/slytherin/skull.png','./images/slytherin/gift.png','./images/slytherin/candle.png','./images/slytherin/cushion.png','./images/slytherin/voldemort.png '  ],
-    itemAlt:['skull','gift','candle','cushion','voldemort'],
+    itemPicture: ['./images/slytherin/skull.png','./images/slytherin/gift.png','./images/slytherin/candle.png','./images/slytherin/cushion.png','./images/slytherin/voldemort.png','./images/slytherin/candle2.png','./images/slytherin/gift2.png','./images/slytherin/mirror.png'],
+    itemAlt:['skull','gift','candle','cushion','voldemort','candle2','gift2','mirror'],
     itemLocation: [{id:1,top:'63%',left:'34%'},{id:2,top:'62%',left:'78%'},{id:3,top:'33%',left:'48%'},{id:4,top:'48%',left:'44%'},{id:5,top:'17%',left:'28%'}]
 },
 {
     picName:'Gryffindor Common Room',
     pictureLink: './images/gryffindor.png',
     alt: 'gryffindor',
-    itemPicture: ['./images/gryffindor/basket.png','./images/gryffindor/scarf.png','./images/gryffindor/painting.png','./images/gryffindor/lamp.png','./images/gryffindor/mug.png '  ],
-    itemAlt:['basket','scarf','painting','lamp','mug'],
+    itemPicture: ['./images/gryffindor/basket.png','./images/gryffindor/scarf.png','./images/gryffindor/painting.png','./images/gryffindor/lamp.png','./images/gryffindor/mug.png','./images/gryffindor/box.png','./images/gryffindor/bean.png','./images/gryffindor/person.png','./images/gryffindor/cushion.png','./images/gryffindor/sweather.png'],
+    itemAlt:['basket','scarf','painting','lamp','mug','box','bean','person','cushion','sweather'],
     itemLocation: [{id:1,top:'58%',left:'17%'},{id:2,top:'57%',left:'43%'},{id:3,top:'11%',left:'84%'},{id:4,top:'35%',left:'2%'},{id:5,top:'43%',left:'76%'}]
+},
+{
+    picName:'Ravenclaw Common Room',
+    pictureLink: './images/ravenclaw.png',
+    alt: 'ravenclaw',
+    itemPicture: ['./images/ravenclaw/sign.png','./images/ravenclaw/person.png','./images/ravenclaw/pattern.png','./images/ravenclaw/cushion.png','./images/ravenclaw/champion.png','./images/ravenclaw/lamp.png','./images/ravenclaw/timer.png','./images/ravenclaw/box.png','./images/ravenclaw/model.png','./images/ravenclaw/champion2.png'],
+    itemAlt:['sign','person','pattern','cushion','champion','lamp','timer','box','model','champion2'],
+    itemLocation: [{id:1,top:'32%',left:'45%'},{id:2,top:'18%',left:'90%'},{id:3,top:'25%',left:'8%'},{id:4,top:'84%',left:'58%'},{id:5,top:'36%',left:'94%'}]
+}, 
+{
+    picName:"Dumbledore's Office",
+    pictureLink: './images/dumbledore.png',
+    alt: 'dumbledore',
+    itemPicture: ['./images/dumbledore/time.png','./images/dumbledore/bluerock.png','./images/dumbledore/dragon.png','./images/dumbledore/crystal.png','./images/dumbledore/sorting.png','./images/dumbledore/box.png','./images/dumbledore/smoke.png','./images/dumbledore/owl.png','./images/dumbledore/lamp.png','./images/dumbledore/machine.png'],
+    itemAlt:['time','bluerock','dragon','crystal','sorting','box','smoke','owl','lamp','machine'],
+    itemLocation: [{id:1,top:'30%',left:'50%'},{id:2,top:'3%',left:'74%'},{id:3,top:'52%',left:'47%'},{id:4,top:'68%',left:'6%'},{id:5,top:'58%',left:'65%'}]
 },
 {
     picName:'Room of Requirement',
     pictureLink: './images/requirement.png',
-    alt: 'gryffindor',
-    itemPicture: ['./images/requirement/luggage.png','./images/requirement/mirror.png','./images/requirement/telescope.png','./images/requirement/triangle.png','./images/requirement/violin.png '  ],
-    itemAlt:['luggage','mirror','telescope','triangle','violin'],
+    alt: 'requirement',
+    itemPicture: ['./images/requirement/luggage.png','./images/requirement/mirror.png','./images/requirement/telescope.png','./images/requirement/triangle.png','./images/requirement/violin.png','./images/requirement/pot.png', './images/requirement/ball.png', './images/requirement/bottle.png', './images/requirement/door.png', './images/requirement/instrument.png'],
+    itemAlt:['luggage','mirror','telescope','triangle','violin','pot','ball','bottle','door','instrument'],
     itemLocation: [{id:1,top:'73%',left:'56%'},{id:2,top:'3%',left:'74%'},{id:3,top:'52%',left:'47%'},{id:4,top:'68%',left:'6%'},{id:5,top:'58%',left:'65%'}]
 },
 {
     picName:'Gringotts Wizarding Bank',
     pictureLink: './images/bank.png',
     alt: 'gringotts',
-    itemPicture: ['./images/bank/cup.png','./images/bank/shield.png','./images/bank/plate.png','./images/bank/pot.png','./images/bank/vase.png '  ],
-    itemAlt:['cup','shield','plate','pot','vase'],
+    itemPicture: ['./images/bank/cup.png','./images/bank/shield.png','./images/bank/plate.png','./images/bank/pot.png','./images/bank/vase.png','./images/bank/cap.png','./images/bank/gold.png','./images/bank/head.png','./images/bank/silver.png','./images/bank/snake.png',  ],
+    itemAlt:['cup','shield','plate','pot','vase','cap','gold','head','silver','snake'],
     itemLocation: [{id:1,top:'73%',left:'67%'},{id:2,top:'45%',left:'38%'},{id:3,top:'81%',left:'26%'},{id:4,top:'50%',left:'12%'},{id:5,top:'48%',left:'42%'}]
     }
 ];
@@ -128,7 +136,7 @@ sortEl.addEventListener('click',()=>{
         timer();
     })
 })
-
+const theme=changeTheme(1);
 //make function that will change picture and keys
 function changeTheme(i){
    removeClickListener();
