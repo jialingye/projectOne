@@ -58,7 +58,7 @@ h1{
     border: 10px groove #a56012;
     border-radius: 1em;
     background-color: #b19c48;
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -68,6 +68,7 @@ h1{
     text-align: center;
     font-family: 'Hogwarts Wizard', sans-serif;
     font-size: 30px;
+    cursor: url(./images/wand.png);
 }
 .beginning input{
     margin-top: 40px;
@@ -88,7 +89,7 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    cursor: url(./images/wand.png);
 }
 
 #sort {
@@ -112,7 +113,7 @@ h1{
   }
   
 .mainPicture{
-    display: flex;
+    display: none;
     /* display: flex; */
     flex-direction: row;
     /* border: 1px solid pink; */
@@ -188,7 +189,7 @@ aside h1{
 .items{
     /* border: 1px solid pink; */
     width: 100%;
-    display:flex;
+    display:none;
     flex-direction: column;
 
 }
