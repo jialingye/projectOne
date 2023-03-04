@@ -89,11 +89,11 @@ const objectsToFind=[
         {link:'./images/ravenclaw/pattern.png', alt:'pattern', location:{top:'25%', left:'8%'}},
         {link:'./images/ravenclaw/cushion.png', alt:'cushion', location:{top:'84%', left:'58%'}},
         {link:'./images/ravenclaw/champion.png', alt:'champion', location:{top:'36%', left:'94%'}},
-        {link:'./images/ravenclaw/lamp.png', alt:'lamp', location:{top:'55%', left:'21%'}},
-        {link:'./images/ravenclaw/timer.png', alt:'timer', location:{top:'55%', left:'21%'}},
-        {link:'./images/ravenclaw/box.png', alt:'box', location:{top:'55%', left:'21%'}},
-        {link:'./images/ravenclaw/model.png', alt:'model', location:{top:'55%', left:'21%'}},
-        {link:'./images/ravenclaw/champion2.png', alt:'champion2', location:{top:'55%', left:'21%'}}
+        {link:'./images/ravenclaw/lamp.png', alt:'lamp', location:{top:'50%', left:'10%'}},
+        {link:'./images/ravenclaw/timer.png', alt:'timer', location:{top:'45%', left:'0%'}},
+        {link:'./images/ravenclaw/box.png', alt:'box', location:{top:'45%', left:'7%'}},
+        {link:'./images/ravenclaw/model.png', alt:'model', location:{top:'60%', left:'63%'}},
+        {link:'./images/ravenclaw/champion2.png', alt:'champion2', location:{top:'50%', left:'95%'}}
     ]
 }, 
 {
@@ -101,16 +101,16 @@ const objectsToFind=[
     pictureLink: './images/dumbledore.png',
     alt: 'dumbledore',
     item:[
-        {link:'./images/dumbledore/time.png', alt:'time', location:{top:'30%', left:'50%'}},
-        {link:'./images/dumbledore/bluerock.png', alt:'bluerock', location:{top:'3%', left:'74%'}},
-        {link:'./images/dumbledore/dragon.png', alt:'dragon', location:{top:'52%', left:'47%'}},
-        {link:'./images/dumbledore/crystal.png', alt:'crystal', location:{top:'68%', left:'6%'}},
-        {link:'./images/dumbledore/sorting.png', alt:'sorting', location:{top:'58%', left:'65%'}},
-        {link:'./images/dumbledore/box.png', alt:'box', location:{top:'50%', left:'40%'}},
-        {link:'./images/dumbledore/smoke.png', alt:'smoke', location:{top:'55%', left:'21%'}},
-        {link:'./images/dumbledore/owl.png', alt:'owl', location:{top:'55%', left:'21%'}},
-        {link:'./images/dumbledore/lamp.png', alt:'lamp', location:{top:'55%', left:'21%'}},
-        {link:'./images/dumbledore/machine.png', alt:'machine', location:{top:'55%', left:'21%'}}
+        {link:'./images/dumbledore/time.png', alt:'time', location:{top:'40%', left:'53%'}},
+        {link:'./images/dumbledore/bluerock.png', alt:'bluerock', location:{top:'60%', left:'2%'}},
+        {link:'./images/dumbledore/dragon.png', alt:'dragon', location:{top:'80%', left:'45%'}},
+        {link:'./images/dumbledore/crystal.png', alt:'crystal', location:{top:'82%', left:'60%'}},
+        {link:'./images/dumbledore/sorting.png', alt:'sorting', location:{top:'25%', left:'0%'}},
+        {link:'./images/dumbledore/box.png', alt:'box', location:{top:'80%', left:'36%'}},
+        {link:'./images/dumbledore/smoke.png', alt:'smoke', location:{top:'78%', left:'23%'}},
+        {link:'./images/dumbledore/owl.png', alt:'owl', location:{top:'60%', left:'70%'}},
+        {link:'./images/dumbledore/lamp.png', alt:'lamp', location:{top:'78%', left:'67%'}},
+        {link:'./images/dumbledore/machine.png', alt:'machine', location:{top:'90%', left:'28%'}}
     ]
 },
 {
@@ -123,11 +123,11 @@ const objectsToFind=[
         {link:'./images/requirement/telescope.png', alt:'telescope', location:{top:'52%', left:'47%'}},
         {link:'./images/requirement/triangle.png', alt:'triangle', location:{top:'68%', left:'6%'}},
         {link:'./images/requirement/violin.png', alt:'violin', location:{top:'58%', left:'65%'}},
-        {link:'./images/requirement/pot.png', alt:'pot', location:{top:'55%', left:'21%'}},
-        {link:'./images/requirement/ball.png', alt:'ball', location:{top:'55%', left:'21%'}},
-        {link:'./images/requirement/bottle.png', alt:'bottle', location:{top:'55%', left:'21%'}},
-        {link:'./images/requirement/door.png', alt:'door', location:{top:'55%', left:'21%'}},
-        {link:'./images/requirement/instrument.png', alt:'instrument', location:{top:'55%', left:'21%'}}
+        {link:'./images/requirement/pot.png', alt:'pot', location:{top:'62%', left:'48%'}},
+        {link:'./images/requirement/ball.png', alt:'ball', location:{top:'53%', left:'40%'}},
+        {link:'./images/requirement/bottle.png', alt:'bottle', location:{top:'70%', left:'20%'}},
+        {link:'./images/requirement/door.png', alt:'door', location:{top:'33%', left:'68%'}},
+        {link:'./images/requirement/instrument.png', alt:'instrument', location:{top:'56%', left:'70%'}}
     ]
 },
 {
@@ -140,11 +140,11 @@ const objectsToFind=[
         {link:'./images/bank/plate.png', alt:'plate', location:{top:'81%', left:'26%'}},
         {link:'./images/bank/pot.png', alt:'pot', location:{top:'50%', left:'12%'}},
         {link:'./images/bank/vase.png', alt:'vase', location:{top:'48%', left:'42%'}},
-        {link:'./images/bank/cap.png', alt:'cap', location:{top:'55%', left:'21%'}},
-        {link:'./images/bank/gold.png', alt:'gold', location:{top:'55%', left:'21%'}},
-        {link:'./images/bank/head.png', alt:'head', location:{top:'55%', left:'21%'}},
-        {link:'./images/bank/silver.png', alt:'silver', location:{top:'55%', left:'21%'}},
-        {link:'./images/bank/snake.png', alt:'snake', location:{top:'55%', left:'21%'}}
+        {link:'./images/bank/cap.png', alt:'cap', location:{top:'78%', left:'40%'}},
+        {link:'./images/bank/gold.png', alt:'gold', location:{top:'60%', left:'44%'}},
+        {link:'./images/bank/head.png', alt:'head', location:{top:'58%', left:'15%'}},
+        {link:'./images/bank/silver.png', alt:'silver', location:{top:'35%', left:'70%'}},
+        {link:'./images/bank/snake.png', alt:'snake', location:{top:'35%', left:'37%'}}
     ]
     }
 ];
@@ -201,7 +201,7 @@ sortEl.addEventListener('click',()=>{
         h6.forEach((word)=>{
             word.style.display='flex';
         })
-       //timer();
+       timer();
     })
 })
 
@@ -221,7 +221,7 @@ selectedKeys=selectedIndex.map(index=>arr[index]);
 return selectedKeys;
 }
 
-const them=changeTheme(4)
+// const them=changeTheme(0)
 //make function that will change picture and keys
 function changeTheme(i){
    removeClickListener();
@@ -327,7 +327,7 @@ function announceWin(){
         keyPic.forEach((key)=>{
             key.style.border='none';
         })
-        //timer();
+        timer();
        })
     replay.addEventListener('click',function(){
         changeTheme(i);
@@ -339,7 +339,7 @@ function announceWin(){
         keyPic.forEach((key)=>{
             key.style.border='none';
        })
-       //timer();
+       timer();
       })
 }
 
@@ -371,7 +371,7 @@ function announceLose(){
         keyPic.forEach((key)=>{
             key.style.border='none';
        })
-       //timer();
+       timer();
     })
 }
 
