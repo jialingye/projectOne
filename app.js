@@ -1,5 +1,6 @@
 //declare global variable
 let score=0;
+let finalScore=score;
 let i=0;
 let itemFound=0;
 let timeFn;
@@ -149,60 +150,96 @@ const objectsToFind=[
     }
 ];
 
+//make timer function
+function timer(){
+    let time=21;
+    let moreTime=document.querySelector('#moretime')
+    moreTime.addEventListener('click',()=>{
+        if(addTime<=4){
+            time=time+10;
+        addTime++;}
+    })
+    timeFn=setInterval(function(){
+        time--;
+        let timeDisplay=document.querySelector('#timer')
+        timeDisplay.innerText=`${time}`
+        
+        if(time<=0){
+            clearInterval(timeFn);
+            if(itemFound-prevItemFound===0 || itemFound%5 !==0){
+               announceLose()
+            }
+            return;
+        }    
+    }, 1000)
+}
+
 //beginning scene name and sort hat function
-const playerName=document.getElementById('player');
+let playerName;
+let assignCollege;
+const playerNameEl=document.getElementById('player');
 const sortEl=document.getElementById('sort');
 //sort button function
 sortEl.addEventListener('click',()=>{
     //setup data and variable;
-    let name=playerName.value; 
-    const colleges=['Gryffdor','Slytherin','Hufflepuff','Ravenclaw'];
-    const imgColleges=['./images/colleges/gryffindor.png','./images/colleges/slytherin.png','./images/colleges/hufflepuff.png','./images/colleges/ravenclaw.png']
-    let randomIndex=Math.floor(Math.random()*4);
-    let assignCollege=colleges[randomIndex];
-    //make new window and new button and new h1
-    const windows=document.createElement('div');
-    windows.classList='new-window';
-    const collegeImg=document.createElement('img');
-    collegeImg.classList='img'
-    const announcement=document.createElement('h2');
-    announcement.style.color='#b19c48';
-    const enterButton=document.createElement('button');
-    document.querySelector('.beginning').appendChild(windows);
-    //assign name
-    let time=10;
-    let index=0;
-    let sort=setInterval(()=>{
-        announcement.innerText='Sorting hat is deciding...'
-        time--;
-        collegeImg.src=imgColleges[index];
-        index++;
-        if(index>=imgColleges.length){
-            index=0;
-        }
-        if(time===0){
-            //clear timer, show player their college and start the game;
-           clearInterval(sort);
-           collegeImg.src=imgColleges[randomIndex];
-           enterButton.innerHTML='<h1>Start Game</h1>';
-           announcement.innerHTML=`Welcome, ${name}! You are assigned to ${assignCollege}.`
-           windows.appendChild(enterButton);
-        }
-    }, 250)   
-    //append button to windows 
-    windows.appendChild(collegeImg);
-    windows.appendChild(announcement);
-    enterButton.addEventListener('click',()=>{
-        changeTheme(i);
-        document.querySelector('.mainPicture').style.display='flex';
-        document.querySelector('.items').style.display='flex';
-        document.querySelector('.beginning').style.display='none';
-        const h6=document.querySelectorAll('h6');
-        h6.forEach((word)=>{
-            word.style.display='flex';
+    playerName=playerNameEl.value; 
+    if(playerName){   
+        const colleges=['Gryffdor','Slytherin','Hufflepuff','Ravenclaw'];
+        const imgColleges=['./images/colleges/gryffindor.png', './images/colleges/slytherin.png','./images/colleges/hufflepuff.png','./images/colleges/ravenclaw.png']
+        let randomIndex=Math.floor(Math.random()*4);
+        assignCollege=colleges[randomIndex];
+        // const player={
+        //     name: playerName,
+        //     college: assignCollege,
+        //     score: finalScore
+        // };
+        //make new window and new button and new h1
+        const windows=document.createElement('div');
+        windows.classList='new-window';
+        const collegeImg=document.createElement('img');
+        collegeImg.classList='img'
+        const announcement=document.createElement('h2');
+        announcement.style.color='#b19c48';
+        const enterButton=document.createElement('button');
+        document.querySelector('.beginning').appendChild(windows);
+        //assign name
+        let time=10;
+        let index=0;
+        let sort=setInterval(()=>{
+            announcement.innerText='Sorting hat is deciding...'
+            time--;
+            collegeImg.src=imgColleges[index];
+            index++;
+            if(index>=imgColleges.length){
+                index=0;
+            }
+            if(time===0){
+                //clear timer, show player their college and start the game;
+            clearInterval(sort);
+            collegeImg.src=imgColleges[randomIndex];
+            enterButton.innerHTML='<h1>Start Game</h1>';
+            announcement.innerHTML=`Welcome, ${playerName}! You are assigned to ${assignCollege}.`
+            windows.appendChild(enterButton);
+            }
+
+        }, 250)   
+        //append button to windows 
+        windows.appendChild(collegeImg);
+        windows.appendChild(announcement);
+        enterButton.addEventListener('click',()=>{
+            changeTheme(i);
+            document.querySelector('.mainPicture').style.display='flex';
+            document.querySelector('.items').style.display='flex';
+            document.querySelector('.beginning').style.display='none';
+            const h6=document.querySelectorAll('h6');
+            h6.forEach((word)=>{
+                word.style.display='flex';
+            })
+        timer();
         })
-       timer();
-    })
+    } else {
+       document.querySelector('#name-error').style.display='block'; //add error handling
+    }
 })
 
 
@@ -244,7 +281,6 @@ function changeTheme(i){
    const items=imageContainer.querySelectorAll('.item');
    for(let k=0; k<keys.length;k++){
     const item=imageContainer.querySelector(`[data-item-id="${k+1}"]`)
-    console.log(item);
     item.style.top=keys[k].location.top;
     item.style.left=keys[k].location.left; 
    }
@@ -275,7 +311,6 @@ function handleClick(event){
     //score plus 1 and show on board
     score=score+2;
     itemFound++;
-    console.log(itemFound)
     document.getElementById('score').innerText=score;
     //remove click event
     event.target.removeEventListener('click',handleClick);
@@ -283,7 +318,6 @@ function handleClick(event){
     const keys=document.querySelector(`#image${event.target.dataset.itemId}`);
     keys.style.border='5px dotted #b19c48';
     keys.style.borderRadius='1em'
-
     if(itemFound%5===0){
         announceWin()
     }
@@ -292,7 +326,7 @@ function handleClick(event){
 
 //create win message window and attach two buttons
 function announceWin(){
-    
+    clearInterval(timeFn);
     //make new window
    const windows=document.createElement('div');
    windows.classList='new-window';
@@ -308,16 +342,19 @@ function announceWin(){
    windows.appendChild(buttonRow)
    document.querySelector('.mainPicture').appendChild(windows);
    //element text 
-   if(itemFound===40){
+   if(itemFound===45){
+    finalScore=score-addTime;
+    player.score=finalScore;
+    // player.score=finalScore;
     replay.innerHTML='<h1>Replay</h1>';
-    message.textContent=`Congratulations, You complete all the levels ! Your final score is ${score}.`
+    message.textContent=`Congratulations, You complete all the levels ! You extend time ${addTime} Times. Your final score is ${finalScore}.`
     nextLevel.style.display='none';
    } else {
     replay.innerHTML='<h1>Replay</h1>';
     nextLevel.innerHTML='<h1>Next Level</h1>';
     message.textContent='Congratulations, You have won this level !'
    }
-   clearInterval(timeFn);
+   
     //make click event on two buttons
     nextLevel.addEventListener('click',function(){
         i=i+1;
@@ -354,7 +391,9 @@ function announceLose(){
     windows.appendChild(replay);
     document.querySelector('.mainPicture').appendChild(windows);
     replay.innerHTML='<h1>Restart</h1>';
-    message.textContent=`Sorry, time has run out! You extend time ${addTime} times. Your final score is ${score-addTime}.`
+    finalScore=score-addTime;
+    player.score=finalScore;
+    message.textContent=`Sorry, time has run out! You extend time ${addTime} times. Your final score is ${finalScore}.`
     //clear last timer
     clearInterval(timeFn);
     //make click event on replay
@@ -375,29 +414,16 @@ function announceLose(){
     })
 }
 
-//make timer function
-
-function timer(){
-    let time=21;
-    let moreTime=document.querySelector('#moretime')
-    moreTime.addEventListener('click',()=>{
-        if(addTime<=4){
-            time=time+10;
-        addTime++;}
-    })
-        timeFn=setInterval(function(){
-        time--;
-        let timeDisplay=document.querySelector('#timer')
-        timeDisplay.innerText=`${time}`
-        
-        if(time<=0){
-            clearInterval(timeFn);
-            if(itemFound-prevItemFound===0 || itemFound%5 !==0){
-               announceLose()
-            }
-            return;
-        }    
-    }, 1000)
+//store player data infomation and display them
+let playerData;
+if (!playerData) {
+  playerData = [];
+} else {
+  playerData = JSON.parse(playerData);
 }
+// add the new player's information to the playerData array
+playerData.push(player);
 
+// store the updated playerData array in local storage
+localStorage.setItem('playerData', JSON.stringify(playerData))
 
