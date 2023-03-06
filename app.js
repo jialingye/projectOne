@@ -5,6 +5,7 @@ let i=0;
 let itemFound=0;
 let timeFn;
 let addTime=0;
+let prevItemFound=itemFound;
 //let clickedableItems=[];
 //create objects that contatins pictures links and key links and key locations
 const objectsToFind=[
@@ -150,15 +151,33 @@ const objectsToFind=[
     }
 ];
 
-//make timer function
+//-------------------------------------------------------------------------------------make timer function-----------------------------------------------------------------------------------------------------------//
 function timer(){
-    let time=21;
+    let time=61;
+    let boostActive=false;
     let moreTime=document.querySelector('#moretime')
-    moreTime.addEventListener('click',()=>{
-        if(addTime<=4){
-            time=time+10;
-        addTime++;}
-    })
+        moreTime.addEventListener('click',()=>{  
+            //make sure time boost can't be clicked during boost time
+            if(boostActive===false && addTime<=4){
+                boostActive=true;
+                let timeBoost=10;
+                //change time boost style
+                let boost=setInterval(function(){
+                    moreTime.style.color='#641616f5';
+                    moreTime.style.textShadow='0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de';
+                    timeBoost--;
+                    // after boost time, time boost button can be clicked again and style back to normal
+                    if(timeBoost<=0){
+                        clearInterval(boost);
+                        moreTime.style.color='#b19c48';
+                        moreTime.style.textShadow='none';
+                        boostActive=false;
+                    }
+                },1000) 
+                time=time+10;
+            addTime++;}
+        })
+    //timer interval
     timeFn=setInterval(function(){
         time--;
         let timeDisplay=document.querySelector('#timer')
@@ -174,7 +193,7 @@ function timer(){
     }, 1000)
 }
 
-//beginning scene name and sort hat function
+//----------------------------------------------------------------------------------beginning scene name and sort hat function----------------------------------------------------------------------------------//
 let playerName;
 let assignCollege;
 const playerNameEl=document.getElementById('player');
@@ -194,8 +213,7 @@ sortEl.addEventListener('click',()=>{
         //     score: finalScore
         // };
         //make new window and new button and new h1
-        const windows=document.createElement('div');
-        windows.classList='new-window';
+        newWindow();
         const collegeImg=document.createElement('img');
         collegeImg.classList='img'
         const announcement=document.createElement('h2');
@@ -243,7 +261,7 @@ sortEl.addEventListener('click',()=>{
 })
 
 
-//generate random array of item
+//----------------------------------------------------------------------------------generate random array of item----------------------------------------------------------------------------------//
 function randomItem(arr){
 const selectedIndex=[];
 let selectedKeys=[];
@@ -254,12 +272,11 @@ while(selectedIndex.length<5){
    } 
 selectedKeys=selectedIndex.map(index=>arr[index]);
 }
-
-return selectedKeys;
+    return selectedKeys;
 }
 
 // const them=changeTheme(0)
-//make function that will change picture and keys
+//----------------------------------------------------------------------------------make function that will change picture and keys----------------------------------------------------------------------------------//
 function changeTheme(i){
    removeClickListener();
    //change picture name
@@ -288,7 +305,7 @@ function changeTheme(i){
 }
 
 
-//make clickable item event listener
+//----------------------------------------------------------------------------------make clickable item event listener----------------------------------------------------------------------------------//
 function addClickListener(){
     const itemClicked=document.querySelectorAll('.clickable');
     itemClicked.forEach(function(item){
@@ -296,7 +313,7 @@ function addClickListener(){
     //clickedableItems.push(item);
 })
 }
-//make remove clickable item event listener
+//----------------------------------------------------------------------------------make remove clickable item event listener----------------------------------------------------------------------------------//
 function removeClickListener(){
     const itemClicked=document.querySelectorAll('.clickable');
     itemClicked.forEach((item)=>{
@@ -305,8 +322,7 @@ function removeClickListener(){
     })
 }
 
-//click function
-let prevItemFound=itemFound;
+//----------------------------------------------------------------------------------click function----------------------------------------------------------------------------------//
 function handleClick(event){
     //score plus 1 and show on board
     score=score+2;
@@ -324,12 +340,11 @@ function handleClick(event){
     prevItemFound=itemFound;
 };
 
-//create win message window and attach two buttons
+//----------------------------------------------------------------------------------create win message window and attach two buttons----------------------------------------------------------------------------------//
 function announceWin(){
     clearInterval(timeFn);
     //make new window
-   const windows=document.createElement('div');
-   windows.classList='new-window';
+    newWindow();
    //create element in the window
    const message=document.createElement('h1')
    const buttonRow=document.createElement('span');
@@ -380,11 +395,10 @@ function announceWin(){
       })
 }
 
-//create time-out windows with 1 button
+//-----------------------------------------------------------------------------------------------create announceLost function----------------------------------------------------------------------------------//
 function announceLose(){
     //copy new-windows from announceWin
-    const windows=document.createElement('div');
-    windows.classList='new-window';
+    newWindow();
     const message=document.createElement('h1')
     const replay=document.createElement('button');
     windows.appendChild(message);
@@ -402,6 +416,7 @@ function announceLose(){
         changeTheme(i);
         score=0;
         itemFound=0;
+        addTime=0;
         document.getElementById('score').innerText=score;
         // score=score-(itemFound%5)*2;
         // itemFound=itemFound-itemFound%5;
@@ -413,8 +428,12 @@ function announceLose(){
        timer();
     })
 }
-
-//store player data infomation and display them
+//----------------------------------------------------------------------------------new window ----------------------------------------------------------------------------------//
+function newWindow(btn1,btn2){
+    const windows=document.createElement('div');
+    windows.classList='new-window';
+}
+//----------------------------------------------------------------------------------store player data infomation and display them----------------------------------------------------------------------------------//
 let playerData;
 if (!playerData) {
   playerData = [];
