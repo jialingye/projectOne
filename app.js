@@ -13,6 +13,7 @@ const objectsToFind=[
     picName:'Hogwarts Train',
     pictureLink: './images/train.png',
     alt: 'train',
+    time: 30,
     item:[
         {link:'./images/train/owl.png', alt:'owl', location:{top:'55%', left:'21%'}},
         {link:'./images/train/luggage.png', alt:'luggage', location:{top:'75%', left:'42%'}},
@@ -25,6 +26,7 @@ const objectsToFind=[
     picName:'Potions Class',
     pictureLink: './images/potions.png',
     alt: 'potions',
+    time: 30,
     item:[
         {link:'./images/potions/tank.png', alt:'tank', location:{top:'45%', left:'32%'}},
         {link:'./images/potions/bottle.png', alt:'bottle', location:{top:'80%', left:'58%'}},
@@ -39,6 +41,7 @@ const objectsToFind=[
     picName:'Hufflepuff Common Room',
     pictureLink: './images/hufflepuff.png',
     alt: 'hufflepuff',
+    time: 40,
     item:[
         {link:'./images/hufflepuff/plant.png', alt:'plant', location:{top:'48%', left:'16%'}},
         {link:'./images/hufflepuff/machine.png', alt:'machine', location:{top:'48%', left:'43%'}},
@@ -53,6 +56,7 @@ const objectsToFind=[
     picName:'Slytherin Common Room',
     pictureLink: './images/slytherin.png',
     alt: 'slytherin',
+    time: 40,
     item:[
         {link:'./images/slytherin/skull.png', alt:'skull', location:{top:'63%', left:'34%'}},
         {link:'./images/slytherin/gift.png', alt:'gift', location:{top:'62%', left:'78%'}},
@@ -68,6 +72,7 @@ const objectsToFind=[
     picName:'Gryffindor Common Room',
     pictureLink: './images/gryffindor.png',
     alt: 'gryffindor',
+    time: 50,
     item:[
         {link:'./images/gryffindor/basket.png', alt:'basket', location:{top:'58%', left:'17%'}},
         {link:'./images/gryffindor/scarf.png', alt:'scarf', location:{top:'57%', left:'43%'}},
@@ -85,6 +90,7 @@ const objectsToFind=[
     picName:'Ravenclaw Common Room',
     pictureLink: './images/ravenclaw.png',
     alt: 'ravenclaw',
+    time: 50,
     item:[
         {link:'./images/ravenclaw/sign.png', alt:'sign', location:{top:'32%', left:'45%'}},
         {link:'./images/ravenclaw/person.png', alt:'person', location:{top:'18%', left:'90%'}},
@@ -102,6 +108,7 @@ const objectsToFind=[
     picName:"Dumbledore's Office",
     pictureLink: './images/dumbledore.png',
     alt: 'dumbledore',
+    time: 50,
     item:[
         {link:'./images/dumbledore/time.png', alt:'time', location:{top:'40%', left:'53%'}},
         {link:'./images/dumbledore/bluerock.png', alt:'bluerock', location:{top:'60%', left:'2%'}},
@@ -119,6 +126,7 @@ const objectsToFind=[
     picName:'Room of Requirement',
     pictureLink: './images/requirement.png',
     alt: 'requirement',
+    time: 60,
     item:[
         {link:'./images/requirement/luggage.png', alt:'luggage', location:{top:'73%', left:'56%'}},
         {link:'./images/requirement/mirror.png', alt:'mirror', location:{top:'3%', left:'74%'}},
@@ -136,6 +144,7 @@ const objectsToFind=[
     picName:'Gringotts Wizarding Bank',
     pictureLink: './images/bank.png',
     alt: 'gringotts',
+    time: 60,
     item:[
         {link:'./images/bank/cup.png', alt:'cup', location:{top:'73%', left:'67%'}},
         {link:'./images/bank/shield.png', alt:'shield', location:{top:'45%', left:'38%'}},
@@ -151,47 +160,61 @@ const objectsToFind=[
     }
 ];
 
+
 //-------------------------------------------------------------------------------------make timer function-----------------------------------------------------------------------------------------------------------//
+let time
+let moreTime=document.querySelector('#moretime')
 function timer(){
-    let time=61;
-    let boostActive=false;
-    let moreTime=document.querySelector('#moretime')
-        moreTime.addEventListener('click',()=>{  
-            //make sure time boost can't be clicked during boost time
-            if(boostActive===false && addTime<=4){
-                boostActive=true;
-                let timeBoost=10;
-                //change time boost style
-                let boost=setInterval(function(){
-                    moreTime.style.color='#641616f5';
-                    moreTime.style.textShadow='0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de';
-                    timeBoost--;
-                    // after boost time, time boost button can be clicked again and style back to normal
-                    if(timeBoost<=0){
-                        clearInterval(boost);
-                        moreTime.style.color='#b19c48';
-                        moreTime.style.textShadow='none';
-                        boostActive=false;
-                    }
-                },1000) 
-                time=time+10;
-            addTime++;}
-        })
+    time=objectsToFind[i].time;
+    //moreTime.removeEventListener('click',moreTimeFn)
+    moreTime.addEventListener('click',moreTimeFn)
     //timer interval
     timeFn=setInterval(function(){
         time--;
         let timeDisplay=document.querySelector('#timer')
-        timeDisplay.innerText=`${time}`
-        
+        timeDisplay.innerText=`${time}`;
+        // if(time<=10){
+        //     timeDisplay.classList.add('boosted');
+        // }
         if(time<=0){
             clearInterval(timeFn);
+           //timeDisplay.classList.remove('boosted');
             if(itemFound-prevItemFound===0 || itemFound%5 !==0){
+                console.log('timeFn')
                announceLose()
             }
             return;
         }    
     }, 1000)
 }
+
+function moreTimeFn(){ 
+    let boostActive=false; 
+    const timeTell=document.querySelector('#timestell');
+    //make sure time boost can't be clicked during boost time
+    if(boostActive===false && addTime<=4){
+        boostActive=true;
+        time=time+10;
+        addTime++;
+        console.log(addTime);
+        //update html
+        timeTell.innerText=`${5-addTime} times left`;
+        //change time boost style
+        let timeBoost=10;
+        let boost=setInterval(function(){
+            moreTime.classList.add('boosted');
+            timeTell.classList.add('boosted');
+            timeBoost--;
+            // after boost time, time boost button can be clicked again and style back to normal
+            if(timeBoost<=0){
+                clearInterval(boost);
+                moreTime.classList.remove('boosted');
+                timeTell.classList.remove('boosted');
+                boostActive=false;
+            }
+        },1000)                
+    }
+}  
 
 //----------------------------------------------------------------------------------beginning scene name and sort hat function----------------------------------------------------------------------------------//
 let playerName;
@@ -207,13 +230,9 @@ sortEl.addEventListener('click',()=>{
         const imgColleges=['./images/colleges/gryffindor.png', './images/colleges/slytherin.png','./images/colleges/hufflepuff.png','./images/colleges/ravenclaw.png']
         let randomIndex=Math.floor(Math.random()*4);
         assignCollege=colleges[randomIndex];
-        // const player={
-        //     name: playerName,
-        //     college: assignCollege,
-        //     score: finalScore
-        // };
         //make new window and new button and new h1
-        newWindow();
+        const windows=document.createElement('div');
+        windows.classList='new-window';
         const collegeImg=document.createElement('img');
         collegeImg.classList='img'
         const announcement=document.createElement('h2');
@@ -295,7 +314,7 @@ function changeTheme(i){
      }
    //change click items locations
    const imageContainer=document.querySelector('.image-container');
-   const items=imageContainer.querySelectorAll('.item');
+   //const items=imageContainer.querySelectorAll('.item');
    for(let k=0; k<keys.length;k++){
     const item=imageContainer.querySelector(`[data-item-id="${k+1}"]`)
     item.style.top=keys[k].location.top;
@@ -324,8 +343,12 @@ function removeClickListener(){
 
 //----------------------------------------------------------------------------------click function----------------------------------------------------------------------------------//
 function handleClick(event){
-    //score plus 1 and show on board
-    score=score+2;
+    //score plus 2 on level 0 to level 7, score plus 4 on level 8 and show on board
+    if(i===8){
+        score=score+4;
+    } else {
+        score=score+2;
+    }
     itemFound++;
     document.getElementById('score').innerText=score;
     //remove click event
@@ -340,11 +363,13 @@ function handleClick(event){
     prevItemFound=itemFound;
 };
 
+
 //----------------------------------------------------------------------------------create win message window and attach two buttons----------------------------------------------------------------------------------//
 function announceWin(){
     clearInterval(timeFn);
     //make new window
-    newWindow();
+    const windows=document.createElement('div');
+    windows.classList='new-window';
    //create element in the window
    const message=document.createElement('h1')
    const buttonRow=document.createElement('span');
@@ -360,7 +385,6 @@ function announceWin(){
    if(itemFound===45){
     finalScore=score-addTime;
     player.score=finalScore;
-    // player.score=finalScore;
     replay.innerHTML='<h1>Replay</h1>';
     message.textContent=`Congratulations, You complete all the levels ! You extend time ${addTime} Times. Your final score is ${finalScore}.`
     nextLevel.style.display='none';
@@ -369,7 +393,7 @@ function announceWin(){
     nextLevel.innerHTML='<h1>Next Level</h1>';
     message.textContent='Congratulations, You have won this level !'
    }
-   
+
     //make click event on two buttons
     nextLevel.addEventListener('click',function(){
         i=i+1;
@@ -383,7 +407,11 @@ function announceWin(){
        })
     replay.addEventListener('click',function(){
         changeTheme(i);
-        score=score-10;
+        if(i===8){
+            score=score-20;
+        } else {
+            score=score-10;
+        }
         document.getElementById('score').innerText=score;
         itemFound=itemFound-5;
         windows.style.display='none';
@@ -396,9 +424,11 @@ function announceWin(){
 }
 
 //-----------------------------------------------------------------------------------------------create announceLost function----------------------------------------------------------------------------------//
+
 function announceLose(){
     //copy new-windows from announceWin
-    newWindow();
+    const windows=document.createElement('div');
+    windows.classList='new-window';
     const message=document.createElement('h1')
     const replay=document.createElement('button');
     windows.appendChild(message);
@@ -410,7 +440,6 @@ function announceLose(){
     message.textContent=`Sorry, time has run out! You extend time ${addTime} times. Your final score is ${finalScore}.`
     //clear last timer
     clearInterval(timeFn);
-    //make click event on replay
     replay.addEventListener('click',function(){
         i=0;
         changeTheme(i);
@@ -418,8 +447,6 @@ function announceLose(){
         itemFound=0;
         addTime=0;
         document.getElementById('score').innerText=score;
-        // score=score-(itemFound%5)*2;
-        // itemFound=itemFound-itemFound%5;
         windows.style.display='none';
         const keyPic=document.querySelectorAll('.key')
         keyPic.forEach((key)=>{
@@ -428,17 +455,24 @@ function announceLose(){
        timer();
     })
 }
-//----------------------------------------------------------------------------------new window ----------------------------------------------------------------------------------//
-function newWindow(btn1,btn2){
+//-----------------------------------------------------------------------------------------------new window ----------------------------------------------------------------------------------//
+function newWindow(){
     const windows=document.createElement('div');
     windows.classList='new-window';
 }
 //----------------------------------------------------------------------------------store player data infomation and display them----------------------------------------------------------------------------------//
-let playerData;
-if (!playerData) {
-  playerData = [];
+const player={
+            name: playerName,
+            college: assignCollege,
+            score: finalScore
+        };
+
+let playerData=localStorage.getItem('playerData');
+
+if(playerData){
+    playerData=JSON.parse(playerData)
 } else {
-  playerData = JSON.parse(playerData);
+    playerData=[];
 }
 // add the new player's information to the playerData array
 playerData.push(player);
