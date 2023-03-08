@@ -25,8 +25,9 @@
            <br>Your goal is to find all the hidden items within the given time limit. Click on the item when you find it to score points. If you find all the items in the keys, you will win the level and move on to the next theme. 
           
            <br><br>You can click on the "Time Boost" button to gain an additional 10 seconds, up to 5 times per game. However, each use of the button will cost you 1 point. 
+           <br><br>But beware, there are dark magic items hidden among the objects. If you accidentally click on it, you will be dizzy and unable to find items for a few seconds.
            
-           <br><br>Enter your name and click to see which college you belong to, then enter the game. The top score will be shown on the scoreboard. Good luck!
+           <br><br>Enter your name and click to see which college you belong to, then enter the game. Good luck!
         </p>
         <input id="player" placeholder="Enter Name and Click Sorting Hat"> 
         <div id="name-error" style="display: none">Please enter your name.</div>
@@ -44,6 +45,8 @@
           <div class="item clickable" data-item-id="3"></div>
           <div class="item clickable" data-item-id="4"></div>
           <div class="item clickable" data-item-id="5"></div>
+          <div class="dark clickable"></div>
+          <div class="dark clickable"></div>
         </div>
         <aside>
           <h1> Score </h1>
