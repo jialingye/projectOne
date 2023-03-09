@@ -8,6 +8,7 @@ let addTime=0;
 let prevItemFound=itemFound;
 let players=[];
 let player;
+let scoreTable ;
 //let clickedableItems=[];
 //create objects that contatins pictures links and key links and key locations
 const objectsToFind=[
@@ -408,9 +409,13 @@ function announceWin(){
    document.querySelector('.mainPicture').appendChild(windows);
    //element text 
    if(itemFound===45){
+    scoreTable = document.createElement('scoreTable');
+    windows.appendChild(scoreTable);
     finalScore=score-addTime;
+    updateScores(assignCollege, finalScore);
+    displayScores();
     replay.innerHTML='<h1>Replay</h1>';
-    message.innerHTML=`Congratulations, You complete all the levels ! You extend time ${addTime} Times. <br> Your final score is ${finalScore}.`
+    message.innerHTML=`Congratulations, You complete all the levels ! You extend time ${addTime} Times. <br> Your final score is ${finalScore}. ${assignCollege} gains ${finalScore} points!`
     nextLevel.style.display='none';
    } else {
     replay.innerHTML='<h1>Replay</h1>';
@@ -455,13 +460,19 @@ function announceLose(){
     windows.classList='new-window';
     const message=document.createElement('h1')
     const replay=document.createElement('button');
+    scoreTable = document.createElement('scoreTable');
     windows.appendChild(message);
+    windows.appendChild(scoreTable);
     windows.appendChild(replay);
     document.querySelector('.mainPicture').appendChild(windows);
     replay.innerHTML='<h1>Restart</h1>';
     finalScore=score-addTime;
-    message.innerHTML=`Sorry, time has run out! You extend time ${addTime} times. <br> Your final score is ${finalScore}.`
+    message.innerHTML=`Sorry, time has run out! You extend time ${addTime} times. <br> Your final score is ${finalScore}. ${assignCollege} gains ${finalScore} points!`
+    
     //clear last timer
+    // Update scores for current player
+    updateScores(assignCollege, finalScore);
+    displayScores();
     clearInterval(timeFn);
     replay.addEventListener('click',function(){
         i=0;
@@ -479,28 +490,55 @@ function announceLose(){
        })
        timer();
     })
-    //log players information
-    player={
-        name: playerName,
-        college: assignCollege,
-        score: finalScore
-    };
-
-   players.push(player);
-   players.sort((a,b)=>a.score-b.score);
-
-   localStorage.setItem('players',JSON.stringify(players));
    
-    for (let i = 0; i < players.length; i++) {
-    console.log("Name: " + players[i].name);
-    console.log("Score: " + players[i].score);
-    console.log("College: " + players[i].college);
-}
 }
 //-----------------------------------------------------------------------------------------------new window ----------------------------------------------------------------------------------//
-function newWindow(){
-    const windows=document.createElement('div');
-    windows.classList='new-window';
-}
+// Function to update local storage with new score data
+function updateScores(college, playerScore) {
+    // Get existing score data from local storage
+    let scoreData = JSON.parse(localStorage.getItem('scoreData')) || {};
+    // Update score data for current college and player
+    if (!scoreData[college]) {
+      scoreData[college] = {};
+    }
+    scoreData[college] = (Number(scoreData[college])||0)+playerScore;
+    // Save updated score data to local storage
+    localStorage.setItem('scoreData', JSON.stringify(scoreData));
+  }
+  
 //----------------------------------------------------------------------------------store player data infomation and display them----------------------------------------------------------------------------------//
 
+function displayScores() {
+    let scoreData = JSON.parse(localStorage.getItem('scoreData')) || {};
+    let scoreList = [];
+  
+    // Create an array of objects with college and score properties
+    for (let college in scoreData) {
+      let score = scoreData[college];
+      scoreList.push({ college: college, score: score });
+    }
+  
+    // Sort the array in descending order by score
+    scoreList.sort(function(a, b) {
+      return b.score - a.score;
+    });
+  
+    // Display the sorted scores
+    scoreTable.innerHTML = '';
+  
+    for (let i = 0; i < scoreList.length; i++) {
+      let college = scoreList[i].college;
+      let score = scoreList[i].score;
+  
+      let row = document.createElement('tr');
+      let collegeCell = document.createElement('td');
+      let scoreCell = document.createElement('td');
+  
+      collegeCell.textContent = college;
+      scoreCell.textContent = score;
+  
+      row.appendChild(collegeCell);
+      row.appendChild(scoreCell);
+      scoreTable.appendChild(row);
+    }
+  }
