@@ -9,14 +9,14 @@ let prevItemFound=itemFound;
 let players=[];
 let player;
 let scoreTable ;
-//let clickedableItems=[];
+
 //create objects that contatins pictures links and key links and key locations
 const objectsToFind=[
 {
     picName:'Level 1: Hogwarts Train',
     pictureLink: './images/train.png',
     alt: 'train',
-    time: 30,
+    time: 25,
     item:[
         {link:'./images/train/owl.png', alt:'owl', location:{top:'55%', left:'21%'}},
         {link:'./images/train/luggage.png', alt:'luggage', location:{top:'75%', left:'42%'}},
@@ -24,13 +24,13 @@ const objectsToFind=[
         {link:'./images/train/wand.png', alt:'wand', location:{top:'75%', left:'20%'}},
         {link:'./images/train/frog.png', alt:'frog', location:{top:'70%', left:'72%'}}
     ],
-    dark:[{top:'55%', left:'56%'},{top:'80%', left:'80%'}]
+    dark:[{top:'58%', left:'58%'},{top:'80%', left:'80%'}]
 }, 
 {
     picName:'Level 2: Potions Class',
     pictureLink: './images/potions.png',
     alt: 'potions',
-    time: 30,
+    time: 25,
     item:[
         {link:'./images/potions/tank.png', alt:'tank', location:{top:'45%', left:'32%'}},
         {link:'./images/potions/bottle.png', alt:'bottle', location:{top:'80%', left:'58%'}},
@@ -40,7 +40,7 @@ const objectsToFind=[
         {link:'./images/potions/bowls.png', alt:'bowls', location:{top:'55%', left:'65%'}},
         {link:'./images/potions/book2.png', alt:'book2', location:{top:'55%', left:'50%'}}
     ],
-    dark:[{top:'40%', left:'68%'},{top:'80%', left:'33%'}]
+    dark:[{top:'45%', left:'68%'},{top:'80%', left:'33%'}]
 }, 
 {
     picName:'Level 3: Slytherin Common Room',
@@ -57,13 +57,13 @@ const objectsToFind=[
         {link:'./images/slytherin/gift2.png', alt:'gift2', location:{top:'59%', left:'72%'}},
         {link:'./images/slytherin/mirror.png', alt:'mirror', location:{top:'28%', left:'50%'}}
     ],
-    dark:[{top:'53%', left:'62%'},{top:'55%', left:'16%'}]
+    dark:[{top:'53%', left:'64%'},{top:'55%', left:'16%'}]
 },
 {
     picName:'Level 4: Hufflepuff Common Room',
     pictureLink: './images/hufflepuff.png',
     alt: 'hufflepuff',
-    time: 40,
+    time: 30,
     item:[
         {link:'./images/hufflepuff/plant.png', alt:'plant', location:{top:'48%', left:'16%'}},
         {link:'./images/hufflepuff/machine.png', alt:'machine', location:{top:'48%', left:'43%'}},
@@ -73,7 +73,7 @@ const objectsToFind=[
         {link:'./images/hufflepuff/pumpkin.png', alt:'pumpkin', location:{top:'18%', left:'31%'}},
         {link:'./images/hufflepuff/painting.png', alt:'painting', location:{top:'35%', left:'40%'}}
     ],
-    dark:[{top:'53%', left:'22%'},{top:'24%', left:'80%'}]
+    dark:[{top:'53%', left:'22%'},{top:'48%', left:'47%'}]
 },
 {
     picName:'Level 5: Gryffindor Common Room',
@@ -92,7 +92,7 @@ const objectsToFind=[
         {link:'./images/gryffindor/cushion.png', alt:'cushion', location:{top:'40%', left:'42%'}},
         {link:'./images/gryffindor/sweather.png', alt:'sweather', location:{top:'50%', left:'28%'}}
     ],
-    dark:[{top:'85%', left:'40%'},{top:'30%', left:'70%'}]
+    dark:[{top:'90%', left:'40%'},{top:'33%', left:'72%'}]
 },
 {
     picName:'Level 6: Ravenclaw Common Room',
@@ -111,7 +111,7 @@ const objectsToFind=[
         {link:'./images/ravenclaw/model.png', alt:'model', location:{top:'60%', left:'63%'}},
         {link:'./images/ravenclaw/champion2.png', alt:'champion2', location:{top:'50%', left:'95%'}}
     ],
-    dark:[{top:'80%', left:'30%'},{top:'6%', left:'45%'}]
+    dark:[{top:'80%', left:'28%'},{top:'6%', left:'45%'}]
 }, 
 {
     picName:"Level 7: Dumbledore's Office",
@@ -130,7 +130,7 @@ const objectsToFind=[
         {link:'./images/dumbledore/lamp.png', alt:'lamp', location:{top:'78%', left:'67%'}},
         {link:'./images/dumbledore/machine.png', alt:'machine', location:{top:'90%', left:'28%'}}
     ],
-    dark:[{top:'50%', left:'89%'},{top:'55%', left:'35%'}]
+    dark:[{top:'50%', left:'87%'},{top:'61%', left:'35%'}]
 },
 {
     picName:'Level 8: Room of Requirement',
@@ -138,7 +138,7 @@ const objectsToFind=[
     alt: 'requirement',
     time: 50,
     item:[
-        {link:'./images/requirement/chair.png', alt:'chair', location:{top:'73%', left:'61%'}},
+        {link:'./images/requirement/chair.png', alt:'chair', location:{top:'73%', left:'62%'}},
         {link:'./images/requirement/mirror.png', alt:'mirror', location:{top:'3%', left:'74%'}},
         {link:'./images/requirement/telescope.png', alt:'telescope', location:{top:'52%', left:'47%'}},
         {link:'./images/requirement/triangle.png', alt:'triangle', location:{top:'68%', left:'6%'}},
@@ -147,15 +147,15 @@ const objectsToFind=[
         {link:'./images/requirement/ball.png', alt:'ball', location:{top:'53%', left:'40%'}},
         {link:'./images/requirement/bottle.png', alt:'bottle', location:{top:'70%', left:'20%'}},
         {link:'./images/requirement/door.png', alt:'door', location:{top:'33%', left:'68%'}},
-        {link:'./images/requirement/instrument.png', alt:'instrument', location:{top:'56%', left:'70%'}}
+        {link:'./images/requirement/instrument.png', alt:'instrument', location:{top:'57%', left:'70%'}}
     ],
-    dark:[{top:'50%', left:'26%'},{top:'45%', left:'55%'}]
+    dark:[{top:'53%', left:'28%'},{top:'45%', left:'55%'}]
 },
 {
     picName:'Level 9: Gringotts Wizarding Bank',
     pictureLink: './images/bank.png',
     alt: 'gringotts',
-    time: 60,
+    time: 50,
     item:[
         {link:'./images/bank/cup.png', alt:'cup', location:{top:'73%', left:'67%'}},
         {link:'./images/bank/shield.png', alt:'shield', location:{top:'45%', left:'38%'}},
@@ -168,30 +168,29 @@ const objectsToFind=[
         {link:'./images/bank/silver.png', alt:'silver', location:{top:'35%', left:'70%'}},
         {link:'./images/bank/snake.png', alt:'snake', location:{top:'35%', left:'37%'}}
     ],
-    dark:[{top:'50%', left:'60%'},{top:'40%', left:'25%'}]
+    dark:[{top:'50%', left:'81%'},{top:'40%', left:'25%'}]
     }
 ];
 
 
-//-------------------------------------------------------------------------------------make timer function-----------------------------------------------------------------------------------------------------------//
+//------------------------------------------------------------------------------------- timer function and timeboost function-----------------------------------------------------------------------------------------------------------//
+//time function variable
 let time
 let boostActive=false; 
 let moreTime=document.querySelector('#moretime')
 function timer(){
     time=objectsToFind[i].time;
-    //moreTime.removeEventListener('click',moreTimeFn)
     moreTime.addEventListener('click',moreTimeFn)
     //timer interval
     timeFn=setInterval(function(){
+        //display time in the timer 
         time--;
         let timeDisplay=document.querySelector('#timer')
         timeDisplay.innerText=`${time}`;
-        // if(time<=10){
-        //     timeDisplay.classList.add('boosted');
-        // }
+        //stop the timer when it timer is 0;
         if(time<=0){
             clearInterval(timeFn);
-           //timeDisplay.classList.remove('boosted');
+            //if no item is found, or item found is not 5, game over
             if(itemFound-prevItemFound===0 || itemFound%5 !==0){
                announceLose()
             }
@@ -199,31 +198,26 @@ function timer(){
         }    
     }, 1000)
 }
-
+//time boost function
 function moreTimeFn(){ 
     const timeTell=document.querySelector('#timestell');
     //make sure time boost can't be clicked during boost time
     if(boostActive===false && addTime<=4){
+        //boostActice is true, then timeboost can't be clicked again
         boostActive=true;
         time=time+10;
         addTime++;
-        console.log(addTime);
         //update html
         timeTell.innerText=`${5-addTime} times left`;
         //change time boost style
-        let timeBoost=10;
-        let boost=setInterval(function(){
-            moreTime.classList.add('boosted');
-            timeTell.classList.add('boosted');
-            timeBoost--;
-            // after boost time, time boost button can be clicked again and style back to normal
-            if(timeBoost<=0){
-                clearInterval(boost);
-                moreTime.classList.remove('boosted');
-                timeTell.classList.remove('boosted');
-                boostActive=false;
-            }
-        },1000)                
+        moreTime.classList.add('boosted');
+        timeTell.classList.add('boosted');   
+        setTimeout(()=>{
+            moreTime.classList.remove('boosted');
+            timeTell.classList.remove('boosted');
+            //time boost can be clicked again
+            boostActive=false;
+        }, 10000)        
     }
 }  
 
@@ -237,11 +231,12 @@ sortEl.addEventListener('click',()=>{
     //setup data and variable;
     playerName=playerNameEl.value; 
     if(playerName){   
+    //assign college to player
         const colleges=['Gryffindor','Slytherin','Hufflepuff','Ravenclaw'];
         const imgColleges=['./images/colleges/gryffindor.png', './images/colleges/slytherin.png','./images/colleges/hufflepuff.png','./images/colleges/ravenclaw.png']
         let randomIndex=Math.floor(Math.random()*4);
         assignCollege=colleges[randomIndex];
-        //make new window and new button and new h1
+     //make new window and new button and new h1
         const windows=document.createElement('div');
         windows.classList='new-window';
         const collegeImg=document.createElement('img');
@@ -250,9 +245,10 @@ sortEl.addEventListener('click',()=>{
         announcement.style.color='#b19c48';
         const enterButton=document.createElement('button');
         document.querySelector('.beginning').appendChild(windows);
-        //assign name
+     //assign name
         let time=10;
         let index=0;
+     //set interval that picture will rotate 
         let sort=setInterval(()=>{
             announcement.innerText='Sorting hat is deciding...'
             time--;
@@ -263,11 +259,11 @@ sortEl.addEventListener('click',()=>{
             }
             if(time===0){
                 //clear timer, show player their college and start the game;
-            clearInterval(sort);
-            collegeImg.src=imgColleges[randomIndex];
-            enterButton.innerHTML='<h1>Start Game</h1>';
-            announcement.innerHTML=`Welcome, ${playerName}! You are assigned to ${assignCollege}.`
-            windows.appendChild(enterButton);
+                clearInterval(sort);
+                collegeImg.src=imgColleges[randomIndex];
+                enterButton.innerHTML='<h1>Start Game</h1>';
+                announcement.innerHTML=`Welcome, ${playerName}! You are assigned to ${assignCollege}.`
+                windows.appendChild(enterButton);
             }
 
         }, 250)   
@@ -279,6 +275,7 @@ sortEl.addEventListener('click',()=>{
             document.querySelector('.mainPicture').style.display='flex';
             document.querySelector('.items').style.display='flex';
             document.querySelector('.beginning').style.display='none';
+            //display timeboost and x times left
             const h6=document.querySelectorAll('h6');
             h6.forEach((word)=>{
                 word.style.display='flex';
