@@ -284,6 +284,10 @@ aside h1{
     padding: 20px;
     text-align: center;
 }
+.new-window h1{
+    margin-top: 30px;
+    /* margin-bottom: 0; */
+}
 
 button{
     border: 10px double #a56012;
@@ -299,7 +303,23 @@ button{
 
 }
 
+table{  
+    border-radius: 1em;
+    font-family: "Hogwarts Wizard", sans-serif;
+    font-size: 30px;
+    width: 40%;
+    text-align: center;   
+}
 
+.college{
+    width: 30%;
+}
+
+table tr, table td{
+    border-radius: 1em;
+    padding: 10px;
+    text-align: center;
+}
 
 
 
