@@ -116,7 +116,6 @@ h1{
     display: none;
     /* display: flex; */
     flex-direction: row;
-    /* border: 1px solid pink; */
 }
 
 .image-container{
@@ -143,7 +142,6 @@ h1{
     height: 50px;
     background-color: transparent;
     border: none;
-    /* cursor: pointer; */
     /* Use CSS to position each clickable element at the location of each item in the picture */
   }
 
@@ -192,8 +190,6 @@ aside{
     align-items: center;
     position: relative;
     z-index: 0;
-    
-    /* border: 1px dotted pink; */
 }
 
 aside h1{
@@ -229,7 +225,6 @@ aside h1{
     justify-content: center;
 }
 .items{
-    /* border: 1px solid pink; */
     width: 100%;
     display:none;
     /* display: flex; */
@@ -246,12 +241,9 @@ aside h1{
     flex: 1;
     margin-top: 10px;
     margin-bottom: 10px;
-    /* border: 10px double #b19c48;
-    border-radius: 50%; */
 }
 
 .keys{
-    /* border: 1px solid pink; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -283,10 +275,7 @@ aside h1{
     color: #cc6600;
     padding: 20px;
     text-align: center;
-}
-.new-window h1{
-    margin-top: 30px;
-    /* margin-bottom: 0; */
+    margin: -30px;
 }
 
 button{
