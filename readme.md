@@ -9,7 +9,7 @@
 <p>I decided to create this game because of my love for Harry Potter. Originally, I had planned to make an escape room game, but I found it too complex to come up with the necessary clues. Instead, I opted for a treasure hunt-style game that focuses on finding hidden items, which I felt would be more approachable and enjoyable for players.</p>
 
 ## Project Description
-<p>Hogwarts Treasure Hunt game features 8 themed levels, each with 5 items to find. Players must search for all items within the time limit, with each level increasing in complexity and decreasing in time. The game is set in iconic locations from the Harry Potter universe, making it a must-play for fans.</p>
+<p>Hogwarts Treasure Hunt game features 9 themed levels, each with 5 items to find. Players must search for all items within the time limit, with each level increasing in complexity and increasing in time. The game is set in iconic locations from the Harry Potter universe, making it a must-play for fans.</p>
 
 ## Wire Frames
 <h3> Initial Game View </h3>
