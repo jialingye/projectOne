@@ -289,22 +289,25 @@ sortEl.addEventListener('click',()=>{
 
 
 //----------------------------------------------------------------------------------generate random array of item----------------------------------------------------------------------------------//
+//create a set of 5 key pictures of each theme
 function randomItem(arr){
 const selectedIndex=[];
 let selectedKeys=[];
 while(selectedIndex.length<5){
    let index=Math.floor(Math.random()*arr.length);
+   //don't push same index to the array
    if(!selectedIndex.includes(index)){
     selectedIndex.push(index);
    } 
+   //crate array with the random 5 index
 selectedKeys=selectedIndex.map(index=>arr[index]);
 }
     return selectedKeys;
 }
 
-//const theme=changeTheme(8);
 //----------------------------------------------------------------------------------make function that will change picture and keys----------------------------------------------------------------------------------//
 function changeTheme(i){
+    //remove clickable of previous theme
    removeClickListener();
    //change picture name
    const picNameEl=document.getElementById('pic-name')
@@ -328,11 +331,13 @@ function changeTheme(i){
     item.style.top=keys[k].location.top;
     item.style.left=keys[k].location.left; 
    }
+   //add dark magic item location
    const dark=imageContainer.querySelectorAll('.dark');
    for(let n=0; n<dark.length; n++){
     dark[n].style.top=objectsToFind[i].dark[n].top;
     dark[n].style.left=objectsToFind[i].dark[n].left;
    }
+   //add clickable of the new theme
    addClickListener();
 }
 
@@ -356,14 +361,16 @@ function removeClickListener(){
 
 //----------------------------------------------------------------------------------click function----------------------------------------------------------------------------------//
 function handleClick(event){
+    //if clickable is dark margic item, add effect and expire in 3 seconds
     if(event.target.classList.contains('dark')){
         const imgEl=document.querySelector('.image-container');
         imgEl.classList.add('smoke-effect');
         setTimeout(()=>{
             imgEl.classList.remove('smoke-effect')
         }, 3000)
-       
+    //if it is not clickable, then add score, and remove click event, and change keys style  
     } else {   
+            //score plus 2 on level 0 to level 7, score plus 4 on level 8 and show on board
             if(i===8){
             score=score+4;
             } else {
@@ -377,13 +384,12 @@ function handleClick(event){
             const keys=document.querySelector(`#image${event.target.dataset.itemId}`);
             keys.style.border='5px dotted #b19c48';
             keys.style.borderRadius='1em'
+            //if find 5 items go to next level
             if(itemFound%5===0){
                 announceWin()
             }
             prevItemFound=itemFound;
     }
-    //score plus 2 on level 0 to level 7, score plus 4 on level 8 and show on board
-
 };
 
 
@@ -406,18 +412,18 @@ function announceWin(){
    document.querySelector('.mainPicture').appendChild(windows);
    //element text 
    if(itemFound===45){
-    scoreTable = document.createElement('table');
-    windows.appendChild(scoreTable);
-    finalScore=score-addTime;
-    updateScores(assignCollege, finalScore);
-    displayScores();
-    replay.style.display='none'
-    message.innerHTML=`Congratulations, You complete all the levels ! You extend time ${addTime} Times. <br> ${assignCollege} gains ${finalScore} points!`
-    nextLevel.style.display='none';
+        scoreTable = document.createElement('table');
+        windows.appendChild(scoreTable);
+        finalScore=score-addTime;
+        updateScores(assignCollege, finalScore);
+        displayScores();
+        replay.style.display='none'
+        message.innerHTML=`Congratulations, You complete all the levels ! You extend time ${addTime} Times. <br> ${assignCollege} gains ${finalScore} points!`
+        nextLevel.style.display='none';
    } else {
-    replay.innerHTML='<h1>Replay</h1>';
-    nextLevel.innerHTML='<h1>Next Level</h1>';
-    message.textContent='Congratulations, You have won this level !'
+        replay.innerHTML='<h1>Replay</h1>';
+        nextLevel.innerHTML='<h1>Next Level</h1>';
+        message.textContent='Congratulations, You have won this level !'
    }
 
     //make click event on two buttons
@@ -452,6 +458,8 @@ function announceWin(){
 //-----------------------------------------------------------------------------------------------create announceLost function----------------------------------------------------------------------------------//
 
 function announceLose(){
+     //clear last timer
+    clearInterval(timeFn);
     //copy new-windows from announceWin
     const windows=document.createElement('div');
     windows.classList='new-window';
@@ -465,12 +473,10 @@ function announceLose(){
     replay.innerHTML='<h1>Restart</h1>';
     finalScore=score-addTime;
     message.innerHTML=`Sorry, time has run out! You extend time ${addTime} times. <br> ${assignCollege} gains ${finalScore} points!`
-    
-    //clear last timer
     // Update scores for current player
     updateScores(assignCollege, finalScore);
     displayScores();
-    clearInterval(timeFn);
+    //replay button
     replay.addEventListener('click',function(){
         i=0;
         changeTheme(i);
@@ -524,8 +530,6 @@ function displayScores(){
     })
     //display score
     console.log(scoreList)
-    
-   
     //display each row
     for(let i=0; i<scoreList.length; i++){
     //create element
@@ -534,7 +538,6 @@ function displayScores(){
         collegeCell.classList.add('college')
         let scoreCell=document.createElement('td')
         scoreCell.classList.add('score')
-
     //update data
         collegeCell.innerText=scoreList[i].college;
         scoreCell.innerText=`${scoreList[i].score} points`;
