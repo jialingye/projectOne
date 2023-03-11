@@ -16,10 +16,10 @@
  <img src='https://github.com/jialingye/projectOne/blob/main/images/md/begin.png' alt='initial'/>
 
 <h3> Game View </h3>
-<img src='https://github.com/jialingye/projectOne/blob/main/images/md/main.png' />
+<img src='https://github.com/jialingye/projectOne/blob/main/images/md/main.png' alt='main'/>
 
 <h3> Final View </h3>
-<img src='https://git.generalassemb.ly/jadeye/projectOne/blob/main/images/md/final.png' />
+<img src='https://github.com/jialingye/projectOne/blob/main/images/md/final.png' alt='final'/>
 
 ## User Stories
 ### MVP Goals
