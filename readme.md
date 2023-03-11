@@ -55,3 +55,6 @@
     <li>If the player chooses to use the add time button, add 10 seconds to the timer and deduct one point from the score.</li>
     <li>End game when all themes are completed and display final score.</li>
 </ol>
+
+### Links
+[Enter the game](https://jialingye.github.io/projectOne/)
